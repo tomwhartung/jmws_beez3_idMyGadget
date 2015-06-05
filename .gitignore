@@ -1,7 +1,9 @@
 #
 # Documentation is here: http://git-scm.com/docs/gitignore
 #
-tmp/
-*.swp
+templates/jmws_beez3_idmygadget/jmws_idMyGadget_for_joomla
+
 /nbproject/
+*.swp
+tmp/
 
