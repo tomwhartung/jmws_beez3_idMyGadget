@@ -1,0 +1,7 @@
+#
+# Documentation is here: http://git-scm.com/docs/gitignore
+#
+tmp/
+*.swp
+/nbproject/
+
