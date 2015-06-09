@@ -10,6 +10,11 @@
 // No direct access.
 defined('_JEXEC') or die;
 
+require_once 'jmws_idMyGadget_for_joomla/Detector.php';
+// $detector = new Detector( Detector::DETECT_MOBILE_BROWSERS );
+$detector = new Detector( Detector::MOBILE_DETECT );
+// $detector = new Detector( Detector::TERA_WURFL );
+
 JLoader::import('joomla.filesystem.file');
 
 // Check modules
@@ -95,6 +100,10 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 		<?php endif; ?>
 
 		<div id="all">
+
+			<p>$detector->getGadgetDetector() = <?php echo $detector->getGadgetDetector() ?></p>
+			<p>$detector->getGadgetString() = <?php echo $detector->getGadgetString() ?></p>
+
 			<div id="back">
 				<header id="header">
 					<div class="logoheader">
