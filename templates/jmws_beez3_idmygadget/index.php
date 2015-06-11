@@ -109,6 +109,10 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 					For information about how to install idMyGadget detectors,
 					see the appropriate README.md file on github
 					<a href="<?php echo $detector->getLinkToReadme(); ?>" target="_blank">here</a>.</p>
+				<?php
+					$application = JFactory::getApplication();
+					$application->enqueueMessage(JText::_('TPL_BEEZ3_DETECTOR_NOT_INSTALLED'), 'error');
+				?>
 			<?php endif; ?>
 
 			<div id="back">
