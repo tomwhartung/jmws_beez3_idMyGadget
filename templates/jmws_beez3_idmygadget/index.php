@@ -11,9 +11,9 @@
 defined('_JEXEC') or die;
 
 require_once 'jmws_idMyGadget_for_joomla/Detector.php';
-// $detector = new Detector( 'detect_mobile_browsers' );
-// $detector = new Detector( 'mobile_detect' );
-$detector = new Detector( 'tera_wurfl' );
+// $jmwsIdMyGadget = new Detector( 'detect_mobile_browsers' );
+// $jmwsIdMyGadget = new Detector( 'mobile_detect' );
+$jmwsIdMyGadget = new Detector( 'tera_wurfl' );
 
 JLoader::import('joomla.filesystem.file');
 
@@ -101,14 +101,14 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 
 		<div id="all">
 
-			<p>$detector->getGadgetDetector() = <?php echo $detector->getGadgetDetector() ?></p>
-			<?php if ( $detector->isInstalled() ) : ?>
-				<p>$detector->getGadgetString() = <?php echo $detector->getGadgetString() ?></p>
+			<p>$jmwsIdMyGadget->getGadgetDetector() = <?php echo $jmwsIdMyGadget->getGadgetDetector() ?></p>
+			<?php if ( $jmwsIdMyGadget->isInstalled() ) : ?>
+				<p>$jmwsIdMyGadget->getGadgetString() = <?php echo $jmwsIdMyGadget->getGadgetString() ?></p>
 			<?php else : ?>
-				<p>The <?php echo $detector->getGadgetDetector() ?> detector is not installed.
+				<p>The <?php echo $jmwsIdMyGadget->getGadgetDetector() ?> detector is not installed.
 					For information about how to install idMyGadget detectors,
 					see the appropriate README.md file on github
-					<a href="<?php echo $detector->getLinkToReadme(); ?>" target="_blank">here</a>.</p>
+					<a href="<?php echo $jmwsIdMyGadget->getLinkToReadme(); ?>" target="_blank">here</a>.</p>
 				<?php
 					$application = JFactory::getApplication();
 					$application->enqueueMessage(JText::_('TPL_BEEZ3_DETECTOR_NOT_INSTALLED'), 'error');
