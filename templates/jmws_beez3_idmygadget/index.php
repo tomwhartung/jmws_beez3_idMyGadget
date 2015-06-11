@@ -11,9 +11,9 @@
 defined('_JEXEC') or die;
 
 require_once 'jmws_idMyGadget_for_joomla/Detector.php';
-// $detector = new Detector( Detector::DETECT_MOBILE_BROWSERS );
-$detector = new Detector( Detector::MOBILE_DETECT );
-// $detector = new Detector( Detector::TERA_WURFL );
+// $detector = new Detector( 'detect_mobile_browsers' );
+// $detector = new Detector( 'mobile_detect' );
+$detector = new Detector( 'tera_wurfl' );
 
 JLoader::import('joomla.filesystem.file');
 
@@ -102,7 +102,14 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 		<div id="all">
 
 			<p>$detector->getGadgetDetector() = <?php echo $detector->getGadgetDetector() ?></p>
-			<p>$detector->getGadgetString() = <?php echo $detector->getGadgetString() ?></p>
+			<?php if ( $detector->isInstalled() ) : ?>
+				<p>$detector->getGadgetString() = <?php echo $detector->getGadgetString() ?></p>
+			<?php else : ?>
+				<p>The <?php echo $detector->getGadgetDetector() ?> detector is not installed.
+					For information about how to install idMyGadget detectors,
+					see the appropriate README.md file on github
+					<a href="<?php echo $detector->getLinkToReadme(); ?>" target="_blank">here</a>.</p>
+			<?php endif; ?>
 
 			<div id="back">
 				<header id="header">
