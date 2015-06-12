@@ -9,11 +9,25 @@
 
 // No direct access.
 defined('_JEXEC') or die;
-
+//
+// Initialize Device Detection
+//
+$jmwsIdMyGadget = null;
 require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadget.php';
-// $jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
-// $jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
-$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
+$gadgetDetector = $this->params->get('gadgetDetector');
+
+if ( $gadgetDetector == 'mobile_detect' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
+}
+else if ( $gadgetDetector == 'tera_wurfl' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
+}
+else
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
+}
 
 JLoader::import('joomla.filesystem.file');
 
