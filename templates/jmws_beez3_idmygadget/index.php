@@ -9,25 +9,6 @@
 
 // No direct access.
 defined('_JEXEC') or die;
-//
-// Initialize Device Detection
-//
-$jmwsIdMyGadget = null;
-require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadget.php';
-$gadgetDetector = $this->params->get('gadgetDetector');
-
-if ( $gadgetDetector == 'mobile_detect' )
-{
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
-}
-else if ( $gadgetDetector == 'tera_wurfl' )
-{
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
-}
-else
-{
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
-}
 
 JLoader::import('joomla.filesystem.file');
 
@@ -84,6 +65,40 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/respond.src.js', 'text/javascript');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/template.js', 'text/javascript');
 
+//
+// Initialize Device Detection
+//
+$jmwsIdMyGadget = null;
+require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadget.php';
+$gadgetDetector = $this->params->get('gadgetDetector');
+
+if ( $gadgetDetector == 'mobile_detect' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
+}
+else if ( $gadgetDetector == 'tera_wurfl' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
+}
+else
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
+}
+//
+// Make sure we have jquery, then
+// If device is a phone, add in the jquery mobile css and library
+//
+if ( ! JFactory::getApplication()->get('jquery') )
+{
+	JFactory::getApplication()->set('jquery',true);
+	$doc->addScript( JmwsIdMyGadget::JQUERY_DESKTOP_JS_URL );
+}
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
+	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -115,10 +130,18 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 
 		<div id="all">
 
+			<p>JFactory::getApplication()->get('jquery') =
+				<?php
+					if ( JFactory::getApplication()->get('jquery') )
+					{
+						echo 'Yes we have jQuery!';
+					} else {
+						echo 'No jQuery for you!';
+					}
+				?></p>
 			<p>$jmwsIdMyGadget->getGadgetDetector() = <?php echo $jmwsIdMyGadget->getGadgetDetector() ?></p>
 			<?php if ( $jmwsIdMyGadget->isInstalled() ) : ?>
 				<p>$jmwsIdMyGadget->getGadgetString() = <?php echo $jmwsIdMyGadget->getGadgetString() ?></p>
-				<p>$jmwsIdMyGadget->displayDeviceData() = <?php echo $jmwsIdMyGadget->displayDeviceData() ?></p>
 			<?php else : ?>
 				<p>The <?php echo $jmwsIdMyGadget->getGadgetDetector() ?> detector is not installed.
 					For information about how to install idMyGadget detectors,
