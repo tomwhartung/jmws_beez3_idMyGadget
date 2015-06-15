@@ -130,19 +130,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 
 		<div id="all">
 
-			<p>JFactory::getApplication()->get('jquery') =
-				<?php
-					if ( JFactory::getApplication()->get('jquery') )
-					{
-						echo 'Yes we have jQuery!';
-					} else {
-						echo 'No jQuery for you!';
-					}
-				?></p>
-			<p>$jmwsIdMyGadget->getGadgetDetector() = <?php echo $jmwsIdMyGadget->getGadgetDetector() ?></p>
-			<?php if ( $jmwsIdMyGadget->isInstalled() ) : ?>
-				<p>$jmwsIdMyGadget->getGadgetString() = <?php echo $jmwsIdMyGadget->getGadgetString() ?></p>
-			<?php else : ?>
+			<?php if ( ! $jmwsIdMyGadget->isInstalled() ) : ?>
 				<p>The <?php echo $jmwsIdMyGadget->getGadgetDetector() ?> detector is not installed.
 					For information about how to install idMyGadget detectors,
 					see the appropriate README.md file on github
@@ -261,6 +249,24 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<div id="footer-sub">
 				<footer id="footer">
 					<jdoc:include type="modules" name="position-14" />
+			<!-- --------------------------------------------------------------------------------- -->
+			<!-- Print out some values that might help with debugging our mobile-friendly template -->
+			<!-- --------------------------------------------------------------------------------- -->
+					<?php
+						print '<p>';
+						if ( JFactory::getApplication()->get('jquery') )
+						{
+							echo 'Yes we have jQuery!';
+						} else {
+							echo 'No jQuery for you!';
+						}
+						print '</p>';
+					?>
+					<p>$jmwsIdMyGadget->getGadgetDetector() = <?php echo $jmwsIdMyGadget->getGadgetDetector() ?></p>
+					<?php if ( $jmwsIdMyGadget->isInstalled() ) : ?>
+						<p>$jmwsIdMyGadget->getGadgetString() = <?php echo $jmwsIdMyGadget->getGadgetString() ?></p>
+					<?php endif; ?>
+
 				</footer><!-- end footer -->
 			</div>
 		</div>
