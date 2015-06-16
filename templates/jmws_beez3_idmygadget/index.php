@@ -241,7 +241,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 								'the appropriate README.md file on github.</a>';
 							$application = JFactory::getApplication();
 							$application->enqueueMessage(
-								JText::_('TPL_BEEZ3_DETECTOR_NOT_INSTALLED') . $linkToReadmeOnGithub ,
+								JText::_('TPL_BEEZ3_IDMYGADGET_DETECTOR_NOT_INSTALLED') . $linkToReadmeOnGithub ,
 								'error'
 							);
 						}
