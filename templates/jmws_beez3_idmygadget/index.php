@@ -26,7 +26,6 @@ JHtml::_('behavior.framework', true);
 
 // Get params
 $color          = $this->params->get('templatecolor');
-$logo           = $this->params->get('logo');
 $navposition    = $this->params->get('navposition');
 $headerImage    = $this->params->get('headerImage');
 $doc            = JFactory::getDocument();
@@ -92,6 +91,24 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
 	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
 }
+//
+// Set the logo (file) and sitetitle (text) to one of the device-specific parameters
+//
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$logo = $this->params->get('logoFilePhone');
+	$sitetitle = $this->params->get('sitetitlePhone');
+}
+else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
+{
+	$logo = $this->params->get('logoFileTablet');
+	$sitetitle = $this->params->get('sitetitleTablet');
+}
+else   // default to/assume we are on a desktop browser
+{
+	$logo = $this->params->get('logoFileDesktop');
+	$sitetitle = $this->params->get('sitetitleDesktop');
+}
 
 ?>
 
@@ -128,10 +145,11 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 					<div class="logoheader">
 						<h1 id="logo">
 						<?php if ($logo) : ?>
-							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"  alt="<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>" />
+							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
+								  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
 						<?php endif;?>
-						<?php if (!$logo AND $templateparams->get('sitetitle')) : ?>
-							<?php echo htmlspecialchars($templateparams->get('sitetitle')); ?>
+						<?php if (!$logo AND $sitetitle) : ?>
+							<?php echo htmlspecialchars($sitetitle); ?>
 						<?php elseif (!$logo AND $config->get('sitename')) : ?>
 							<?php echo htmlspecialchars($config->get('sitename')); ?>
 						<?php endif; ?>
