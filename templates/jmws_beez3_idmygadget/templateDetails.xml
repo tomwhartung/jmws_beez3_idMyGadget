@@ -55,7 +55,7 @@
 
 	<config>
 		<fields name="params">
-			<fieldset name="advanced">
+			<fieldset name="idmygadget">
 				<field name="gadgetDetector"
 					type="radio"
 					class="btn-group"
@@ -67,7 +67,9 @@
 					<option value="mobile_detect">Mobile Detect</option>
 					<option value="tera_wurfl">Tera Wurfl</option>
 				</field>
+			</fieldset>
 
+			<fieldset name="advanced">
 				<field name="wrapperSmall"  class="validate-numeric" type="text" default="53"
 					label="TPL_BEEZ3_FIELD_WRAPPERSMALL_LABEL"
 					description="TPL_BEEZ3_FIELD_WRAPPERSMALL_DESC"
