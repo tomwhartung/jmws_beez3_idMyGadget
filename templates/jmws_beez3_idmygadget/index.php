@@ -92,22 +92,25 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
 }
 //
-// Set the logo (file) and sitetitle (text) to one of the device-specific parameters
+// Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
 //
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
 	$logo = $this->params->get('logoFilePhone');
 	$sitetitle = $this->params->get('sitetitlePhone');
+	$sitedescription = $this->params->get('sitedescriptionPhone');
 }
 else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
 {
 	$logo = $this->params->get('logoFileTablet');
 	$sitetitle = $this->params->get('sitetitleTablet');
+	$sitedescription = $this->params->get('sitedescriptionTablet');
 }
 else   // default to/assume we are on a desktop browser
 {
 	$logo = $this->params->get('logoFileDesktop');
 	$sitetitle = $this->params->get('sitetitleDesktop');
+	$sitedescription = $this->params->get('sitedescriptionDesktop');
 }
 
 ?>
@@ -154,7 +157,7 @@ else   // default to/assume we are on a desktop browser
 							<?php echo htmlspecialchars($config->get('sitename')); ?>
 						<?php endif; ?>
 						<span class="header1">
-						<?php echo htmlspecialchars($templateparams->get('sitedescription')); ?>
+						<?php echo htmlspecialchars($sitedescription); ?>
 						</span></h1>
 					</div><!-- end logoheader -->
 					<ul class="skiplinks">
