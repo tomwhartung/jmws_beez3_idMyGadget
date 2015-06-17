@@ -16,7 +16,6 @@ $showbottom      = 0;
 // Get params
 $app         = JFactory::getApplication();
 $params      = $app->getTemplate(true)->params;
-$logo        = $params->get('logo');
 $color       = $params->get('templatecolor');
 $navposition = $params->get('navposition');
 
@@ -24,6 +23,56 @@ $navposition = $params->get('navposition');
 $doc             = JFactory::getDocument();
 $this->language  = $doc->language;
 $this->direction = $doc->direction;
+
+//
+// Initialize Device Detection
+//
+$jmwsIdMyGadget = null;
+require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadget.php';
+$gadgetDetector = $params->get('gadgetDetector');
+
+if ( $gadgetDetector == 'mobile_detect' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
+}
+else if ( $gadgetDetector == 'tera_wurfl' )
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
+}
+else
+{
+	$jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
+}
+//
+// If device is a phone, add in the jquery mobile css and library
+//
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
+	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
+}
+//
+// Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
+//
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$logo = $params->get('logoFilePhone');
+	$sitetitle = $params->get('sitetitlePhone');
+	$sitedescription = $params->get('sitedescriptionPhone');
+}
+else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
+{
+	$logo = $params->get('logoFileTablet');
+	$sitetitle = $params->get('sitetitleTablet');
+	$sitedescription = $params->get('sitedescriptionTablet');
+}
+else   // default to/assume we are on a desktop browser
+{
+	$logo = $params->get('logoFileDesktop');
+	$sitetitle = $params->get('sitetitleDesktop');
+	$sitedescription = $params->get('sitedescriptionDesktop');
+}
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,12 +141,13 @@ $this->direction = $doc->direction;
 					<div class="logoheader">
 						<h1 id="logo">
 							<?php if ($logo) : ?>
-								<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"  alt="<?php echo htmlspecialchars($params->get('sitetitle')); ?>" />
+								<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
+									  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
 							<?php else : ?>
-								<?php echo htmlspecialchars($params->get('sitetitle')); ?>
+								<?php echo htmlspecialchars($sitetitle); ?>
 							<?php endif; ?>
 							<span class="header1">
-								<?php echo htmlspecialchars($params->get('sitedescription')); ?>
+								<?php echo htmlspecialchars($sitedescription); ?>
 							</span>
 						</h1>
 					</div><!-- end logoheader -->
