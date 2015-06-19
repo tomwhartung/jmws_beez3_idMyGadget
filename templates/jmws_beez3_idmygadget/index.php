@@ -112,6 +112,21 @@ else   // default to/assume we are on a desktop browser
 	$sitetitle = $this->params->get('sitetitleDesktop');
 	$sitedescription = $this->params->get('sitedescriptionDesktop');
 }
+//
+// Set data-role attributes to be used with jQuery Mobile
+//
+$jqm_data_role_page = '';
+$jqm_data_role_header = '';
+$jqm_data_role_content = '';
+$jqm_data_role_footer = '';
+
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$jqm_data_role_page = 'data-role="page"';
+	$jqm_data_role_header = 'data-role="header"';
+	$jqm_data_role_content = 'data-role="content"';
+	$jqm_data_role_footer = 'data-role="footer"';
+}
 
 ?>
 
@@ -142,9 +157,9 @@ else   // default to/assume we are on a desktop browser
 			</style>
 		<?php endif; ?>
 
-		<div id="all">
+		<div id="all" <?php echo $jqm_data_role_page ?> >
 			<div id="back">
-				<header id="header">
+				<header id="header" <?php echo $jqm_data_role_header ?> >
 					<div class="logoheader">
 						<h1 id="logo">
 						<?php if ($logo) : ?>
@@ -176,7 +191,8 @@ else   // default to/assume we are on a desktop browser
 						<jdoc:include type="modules" name="position-0" />
 					</div> <!-- end line -->
 				</header><!-- end header -->
-				<div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>">
+				<div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>"
+						<?php echo $jqm_data_role_content ?> >
 					<div id="breadcrumbs">
 						<jdoc:include type="modules" name="position-2" />
 					</div>
@@ -236,7 +252,7 @@ else   // default to/assume we are on a desktop browser
 			</div><!-- back -->
 		</div><!-- all -->
 
-		<div id="footer-outer">
+		<div id="footer-outer" <?php echo $jqm_data_role_footer ?> >
 			<?php if ($showbottom) : ?>
 				<div id="footer-inner" >
 
@@ -277,7 +293,7 @@ else   // default to/assume we are on a desktop browser
 
 				</footer><!-- end footer -->
 			</div>
-		</div>
+		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
 	</body>
 </html>
