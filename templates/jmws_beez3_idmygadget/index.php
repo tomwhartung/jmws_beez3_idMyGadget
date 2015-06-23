@@ -160,7 +160,12 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 
 		<div id="all" <?php echo $jqm_data_role_page ?> >
 			<div id="back">
-				<header id="header" <?php echo $jqm_data_role_header ?> >
+				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+					<div <?php echo $jqm_data_role_header ?> >
+						<jdoc:include type="modules" name="phone-header-nav" style="none" />
+					</div>
+				<?php endif; ?>
+				<header id="header">
 					<div class="logoheader">
 						<h1 id="logo">
 						<?php if ($logo) : ?>
