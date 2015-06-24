@@ -94,9 +94,12 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 }
 //
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
+// This is also an excellent place to set other values as appropriate
 //
+$includeFontsizeDiv = TRUE;
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
+	$includeFontsizeDiv = FALSE;
 	$logo = $this->params->get('logoFilePhone');
 	$sitetitle = $this->params->get('sitetitlePhone');
 	$sitedescription = $this->params->get('sitedescriptionPhone');
@@ -188,11 +191,15 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 							<li><a href="#right" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_INFO'); ?></a></li>
 						<?php endif; ?>
 					</ul>
+				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+				<?php endif; ?>
 					<h2 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAV_VIEW_SEARCH'); ?></h2>
 					<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAVIGATION'); ?></h3>
 					<jdoc:include type="modules" name="position-1" />
 					<div id="line">
-						<div id="fontsize"></div>
+						<?php if ( $includeFontsizeDiv ) : ?>
+							<div id="fontsize"></div>
+						<?php endif; ?>
 						<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_SEARCH'); ?></h3>
 						<jdoc:include type="modules" name="position-0" />
 					</div> <!-- end line -->
