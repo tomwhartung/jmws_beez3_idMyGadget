@@ -131,15 +131,12 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$jqm_data_role_header = 'data-role="header"';
 	$jqm_data_role_content = 'data-role="content"';
 	$jqm_data_role_footer = 'data-role="footer"';
+	$jqm_data_theme = '';
 	if ( $this->countModules('phone-footer-nav') )
 	{
 		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
 		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
 		$jqm_data_theme = 'data-theme="' . $idMyGadgetParams['jqm_data_theme'] . '"';
-	}
-	else
-	{
-		$jqm_data_theme = 'none';
 	}
 }
 ?>
@@ -180,7 +177,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 		<div id="all">
 			<div id="back">
 				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
-					<div <?php echo $jqm_data_role_header ?> >
+					<div <?php echo $jqm_data_role_header . ' ' . $jqm_data_theme ?> >
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
@@ -281,8 +278,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			</div><!-- back -->
 		</div><!-- all -->
 
-		<div id="footer-outer" <?php echo $jqm_data_role_footer ?> >
-			<p>$jqm_data_theme:<?php echo $jqm_data_theme; ?></p>
+		<div id="footer-outer" <?php echo $jqm_data_role_footer . ' ' . $jqm_data_theme ?> >
 			<?php if ($showbottom) : ?>
 				<div id="footer-inner" >
 
@@ -313,10 +309,10 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 							);
 						}
 					?>
+					<jdoc:include type="modules" name="phone-footer-nav" />
 				</footer> <!-- end footer -->
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
-		<jdoc:include type="modules" name="phone-footer-nav" />
 		<jdoc:include type="modules" name="debug" />
 		<?php
 			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
