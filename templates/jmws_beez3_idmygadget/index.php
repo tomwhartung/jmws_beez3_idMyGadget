@@ -131,13 +131,13 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$jqm_data_role_header = 'data-role="header"';
 	$jqm_data_role_content = 'data-role="content"';
 	$jqm_data_role_footer = 'data-role="footer"';
-	if ( $this->countModules('phone-footer-nav') )
+	if ( $this->countModules('phone-header-nav') )
 	{
 		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
 		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
 		$jqm_data_theme = 'data-theme="' . $idMyGadgetParams['jqm_data_theme'] . '"';
 	}
-	else if ( $this->countModules('phone-footer-nav') )
+	if ( $this->countModules('phone-footer-nav') )
 	{
 		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
 		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
@@ -283,7 +283,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			</div><!-- back -->
 		</div><!-- all -->
 
-		<div id="footer-outer" <?php echo $jqm_data_role_footer . ' ' . $jqm_data_theme ?> >
+		<div id="footer-outer">
 			<?php if ($showbottom) : ?>
 				<div id="footer-inner" >
 
@@ -299,13 +299,15 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<div id="footer-sub">
 				<footer id="footer">
 					<jdoc:include type="modules" name="position-14" />
-					<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
-						<jdoc:include type="modules" name="phone-footer-nav" />
-					<?php endif; ?>
 				</footer> <!-- end footer -->
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
+		<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+			<div <?php echo $jqm_data_role_footer . ' ' . $jqm_data_theme ?> >
+				<jdoc:include type="modules" name="phone-footer-nav" />
+			</div>
+		<?php endif; ?>
 		<?php
 			// If the gadget-detector is not installed, generate an error message
 			//
