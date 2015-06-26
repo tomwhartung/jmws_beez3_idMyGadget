@@ -123,6 +123,7 @@ $jqm_data_role_page = '';
 $jqm_data_role_header = '';
 $jqm_data_role_content = '';
 $jqm_data_role_footer = '';
+$jqm_data_theme = 'x';
 
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
@@ -130,8 +131,17 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$jqm_data_role_header = 'data-role="header"';
 	$jqm_data_role_content = 'data-role="content"';
 	$jqm_data_role_footer = 'data-role="footer"';
+	if ( $this->countModules('phone-footer-nav') )
+	{
+		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
+		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
+		$jqm_data_theme = 'data-theme="' . $idMyGadgetParams['jqm_data_theme'] . '"';
+	}
+	else
+	{
+		$jqm_data_theme = 'none';
+	}
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -150,6 +160,12 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 		<![endif]-->
 	</head>
 	<body id="shadow">
+		<?php
+			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+			{
+				print '<div ' .  $jqm_data_role_page . '>';
+			}
+		?>
 		<?php if ($color == 'image'):?>
 			<style type="text/css">
 				.logoheader {
@@ -161,7 +177,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			</style>
 		<?php endif; ?>
 
-		<div id="all" <?php echo $jqm_data_role_page ?> >
+		<div id="all">
 			<div id="back">
 				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
 					<div <?php echo $jqm_data_role_header ?> >
@@ -266,6 +282,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 		</div><!-- all -->
 
 		<div id="footer-outer" <?php echo $jqm_data_role_footer ?> >
+			<p>$jqm_data_theme:<?php echo $jqm_data_theme; ?></p>
 			<?php if ($showbottom) : ?>
 				<div id="footer-inner" >
 
@@ -299,6 +316,13 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 				</footer> <!-- end footer -->
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
+		<jdoc:include type="modules" name="phone-footer-nav" />
 		<jdoc:include type="modules" name="debug" />
+		<?php
+			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+			{
+				print '</div> <!-- ' .  $jqm_data_role_page . '-->';
+			}
+		?>
 	</body>
 </html>
