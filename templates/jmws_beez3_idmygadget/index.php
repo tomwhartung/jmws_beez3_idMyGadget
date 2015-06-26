@@ -299,7 +299,9 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<div id="footer-sub">
 				<footer id="footer">
 					<jdoc:include type="modules" name="position-14" />
-					<jdoc:include type="modules" name="phone-footer-nav" />
+					<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+						<jdoc:include type="modules" name="phone-footer-nav" />
+					<?php endif; ?>
 				</footer> <!-- end footer -->
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
