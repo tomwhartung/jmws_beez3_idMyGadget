@@ -123,7 +123,7 @@ $jqm_data_role_page = '';
 $jqm_data_role_header = '';
 $jqm_data_role_content = '';
 $jqm_data_role_footer = '';
-$jqm_data_theme = 'x';
+$jqm_data_theme = '';
 
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
@@ -131,8 +131,13 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$jqm_data_role_header = 'data-role="header"';
 	$jqm_data_role_content = 'data-role="content"';
 	$jqm_data_role_footer = 'data-role="footer"';
-	$jqm_data_theme = '';
 	if ( $this->countModules('phone-footer-nav') )
+	{
+		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
+		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
+		$jqm_data_theme = 'data-theme="' . $idMyGadgetParams['jqm_data_theme'] . '"';
+	}
+	else if ( $this->countModules('phone-footer-nav') )
 	{
 		$mod_menu_idmygadget = JModuleHelper::getModule('mod_menu_idmygadget');
 		$idMyGadgetParams = new JRegistry($mod_menu_idmygadget->params);
