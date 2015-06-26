@@ -294,26 +294,26 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<div id="footer-sub">
 				<footer id="footer">
 					<jdoc:include type="modules" name="position-14" />
-					<?php
-						// If the gadget-detector is not installed, generate an error message
-						//
-						if ( ! $jmwsIdMyGadget->isInstalled() )
-						{
-							$linkToReadmeOnGithub =
-								'<a href="' . $jmwsIdMyGadget->getLinkToReadme() . '" target="_blank">' .
-								'the appropriate README.md file on github.</a>';
-							$application = JFactory::getApplication();
-							$application->enqueueMessage(
-								JText::_('TPL_BEEZ3_IDMYGADGET_DETECTOR_NOT_INSTALLED') . $linkToReadmeOnGithub ,
-								'error'
-							);
-						}
-					?>
 					<jdoc:include type="modules" name="phone-footer-nav" />
 				</footer> <!-- end footer -->
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
+		<?php
+			// If the gadget-detector is not installed, generate an error message
+			//
+			if ( ! $jmwsIdMyGadget->isInstalled() )
+			{
+				$linkToReadmeOnGithub =
+					'<a href="' . $jmwsIdMyGadget->getLinkToReadme() . '" target="_blank">' .
+					'the appropriate README.md file on github.</a>';
+				$application = JFactory::getApplication();
+				$application->enqueueMessage(
+					JText::_('TPL_BEEZ3_IDMYGADGET_DETECTOR_NOT_INSTALLED') . $linkToReadmeOnGithub ,
+					'error'
+				);
+			}
+		?>
 		<?php
 			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 			{
