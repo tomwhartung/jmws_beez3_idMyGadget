@@ -304,9 +304,13 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<?php endif; ?>
 
 			<div id="footer-sub">
-				<footer id="footer">
-					<jdoc:include type="modules" name="position-14" />
-				</footer> <!-- end footer -->
+				<?php
+					if ( $this->countModules('position-14') ||
+					     $jmwsIdMyGadget->getGadgetString() !== JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+					<footer id="footer">
+						<jdoc:include type="modules" name="position-14" />
+					</footer> <!-- end footer -->
+				<?php endif; ?>
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
