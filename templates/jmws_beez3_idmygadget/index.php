@@ -149,6 +149,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			$jqm_data_theme_letter = $jqm_data_theme_template;
 		}
 		$jqm_data_theme_attribute = 'data-theme="' . $jqm_data_theme_letter . '"';
+		$jqm_footer_attributes = 'class="ui-bar" data-position="fixed" ';
 	}
 }
 ?>
@@ -189,7 +190,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 		<div id="all">
 			<div id="back">
 				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
-					<div <?php echo $jqm_data_role_header . ' ' . $jqm_data_theme_attribute ?> >
+					<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
