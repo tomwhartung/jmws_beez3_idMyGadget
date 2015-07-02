@@ -92,7 +92,24 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
 	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
 	$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/idMyGadget.css');
-	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/j/idMyGadget.js');
+//	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/j/idMyGadget.js');
+}
+//
+// Initialize markup for the optional "phone-burger" menus,
+//  depending on which ones, if any, are being used,
+//
+$phone_burger_menu_left = '';
+$phone_burger_menu_right = '';
+
+if ( $this->countModules('phone-burger-menu-left' ) )
+{
+	$phone_burger_menu_left = '<canvas id = "phone-burger-menu-left" width="50" height="50">' .
+		'&nbsp;MenuL&nbsp;' . '</canvas>';
+}
+if ( $this->countModules('phone-burger-menu-right' ) )
+{
+	$phone_burger_menu_right = '<canvas id = "phone-burger-menu-right" width="50" height="50">' .
+		'&nbsp;MenuR&nbsp;' . '</canvas>';
 }
 //
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
