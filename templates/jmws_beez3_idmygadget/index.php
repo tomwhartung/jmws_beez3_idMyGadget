@@ -69,20 +69,20 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 //
 global $jmwsIdMyGadget;
 $jmwsIdMyGadget = null;
-require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadget.php';
+require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadgetJoomla.php';
 $gadgetDetector = $this->params->get('gadgetDetector');
 
 if ( $gadgetDetector == 'mobile_detect' )
 {
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'mobile_detect' );
+	$jmwsIdMyGadget = new JmwsIdMyGadgetJoomla( 'mobile_detect' );
 }
 else if ( $gadgetDetector == 'tera_wurfl' )
 {
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'tera_wurfl' );
+	$jmwsIdMyGadget = new JmwsIdMyGadgetJoomla( 'tera_wurfl' );
 }
 else
 {
-	$jmwsIdMyGadget = new JmwsIdMyGadget( 'detect_mobile_browsers' );
+	$jmwsIdMyGadget = new JmwsIdMyGadgetJoomla( 'detect_mobile_browsers' );
 }
 //
 // If device is a phone, add in jquery mobile js and css and idMyGadget code
