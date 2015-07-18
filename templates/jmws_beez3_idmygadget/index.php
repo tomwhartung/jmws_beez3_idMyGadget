@@ -98,17 +98,26 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 // Initialize markup for the optional "phone-burger" menus,
 //  depending on which ones, if any, are being used,
 //
-$phone_burger_menu_left = '';
-$phone_burger_menu_right = '';
+$phoneBurgerIconLeft = new stdClass();
+$phoneBurgerIconLeft->html = '';
+$phoneBurgerIconLeft->js = '';
+$phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
+$phoneBurgerIconLeft->useImage = FALSE;
+$phoneBurgerIconRight = new stdClass();
+$phoneBurgerIconRight->html = '';
 
 if ( $this->countModules('phone-burger-menu-left' ) )
 {
-	$phone_burger_menu_left = '<canvas id = "phone-burger-menu-left" width="50" height="50">' .
-		'&nbsp;MenuL&nbsp;' . '</canvas>';
+	$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.jpg';
+	$phoneBurgerIconLeft->html = '<img id="phone-burger-menu-left" ' .
+		'width="50" height="50" ' .
+		'style="z-index: 1;" ' .
+		'src="templates/' . $phoneBurgerIconLeft->fileName . '">' .
+		'&nbsp;MenuL&nbsp;' . '</img>';
 }
 if ( $this->countModules('phone-burger-menu-right' ) )
 {
-	$phone_burger_menu_right = '<canvas id = "phone-burger-menu-right" width="50" height="50">' .
+	$phoneBurgerIconRight->html = '<canvas id="phone-burger-menu-right" width="50" height="50">' .
 		'&nbsp;MenuR&nbsp;' . '</canvas>';
 }
 //
@@ -213,9 +222,10 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
-				<header id="header">
-					<div class="logoheader">
-						<h1 id="logo">
+				header:(<header id="header">x
+					div.logoheader:"<div class="logoheader">
+						<?php echo 'pbm:' . $phoneBurgerIconLeft->html . ':pbm' ?>
+						h1#logo:!<h1 id="logo">
 						<?php if ($logo) : ?>
 							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
 								  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
@@ -227,28 +237,28 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 						<?php endif; ?>
 						<span class="header1">
 						<?php echo htmlspecialchars($sitedescription); ?>
-						</span></h1>
-					</div><!-- end logoheader -->
-					<ul class="skiplinks">
+						</span></h1>!:h1#logo
+					</div>":div.logoheader<!-- end logoheader -->
+					ul.skiplinks::<ul class="skiplinks">
 						<li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ3_SKIP_TO_CONTENT'); ?></a></li>
 						<li><a href="#nav" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_NAV'); ?></a></li>
 						<?php if ($showRightColumn) : ?>
 							<li><a href="#right" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_INFO'); ?></a></li>
 						<?php endif; ?>
-					</ul>
+					</ul>::ul.skiplinks
 				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
 				<?php endif; ?>
 					<h2 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAV_VIEW_SEARCH'); ?></h2>
 					<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAVIGATION'); ?></h3>
-					<jdoc:include type="modules" name="position-1" />
-					<div id="line">
+					pos-1:[<jdoc:include type="modules" name="position-1" />]:pos-1
+					line:{<div id="line">
 						<?php if ( $includeFontsizeDiv ) : ?>
 							<div id="fontsize"></div>
 						<?php endif; ?>
 						<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_SEARCH'); ?></h3>
 						<jdoc:include type="modules" name="position-0" />
-					</div> <!-- end line -->
-				</header><!-- end header -->
+					</div>}:line <!-- end line -->
+				</header>):header<!-- end header -->
 				<div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>"
 						<?php echo $jqm_data_role_content ?> >
 					<div id="breadcrumbs">
