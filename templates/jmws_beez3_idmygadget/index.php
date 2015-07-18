@@ -85,15 +85,76 @@ else
 	$jmwsIdMyGadget = new JmwsIdMyGadgetJoomla( 'detect_mobile_browsers' );
 }
 //
-// If device is a phone, add in jquery mobile js and css and idMyGadget code
+// Determine whether we want to include jQuery mobile:
+// o  If the device is a phone include it (we always use it on phones)
+// o  For tablets and desktops: based on hether we want at least one phone burger menu
 //
+$jmwsIdMyGadget->usingJQueryMobile = FALSE;
+$jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = FALSE;
+$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = FALSE;
+
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
+	$jmwsIdMyGadget->usingJQueryMobile = TRUE;    // always use it on phones
+	if ( $this->countModules('phone-burger-menu-left') )
+	{
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = TRUE;
+	}
+	if ( $this->countModules('phone-burger-menu-right') )
+	{
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = TRUE;
+	}
+}
+else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
+{
+	if ( $this->countModules('phone-burger-menu-left') &&
+	     $this->params->get('phoneBurgerMenuLeftOnTablet') )
+	{
+		$jmwsIdMyGadget->usingJQueryMobile = TRUE;
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = TRUE;
+	}
+	if ( $this->countModules('phone-burger-menu-right') &&
+	     $this->params->get('phoneBurgerMenuRightOnTablet') )
+	{
+		$jmwsIdMyGadget->usingJQueryMobile = TRUE;
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = TRUE;
+	}
+}
+else
+{
+	if ( $this->countModules('phone-burger-menu-left') &&
+	     $this->params->get('phoneBurgerMenuLeftOnDesktop') )
+	{
+		$jmwsIdMyGadget->usingJQueryMobile = TRUE;
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = TRUE;
+	}
+	if ( $this->countModules('phone-burger-menu-right') &&
+	     $this->params->get('phoneBurgerMenuRightOnDesktop') )
+	{
+		$jmwsIdMyGadget->usingJQueryMobile = TRUE;
+		$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = TRUE;
+	}
+}
+//
+// If it's been decided we are using jQuery mobile,
+//    add in the appropriate idMyGadget and jQuery mobile js and css code
+// Note that it's best to add in our customizations before adding in jQuery mobile:
+//    http://demos.jquerymobile.com/1.0/docs/api/globalconfig.html
+//
+// --------------------------------------------------------------------------------------------
+// if ( $jmwsIdMyGadget->usingJQueryMobile )
+if ( TRUE )
+{
+	if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft ||
+	     $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight   )
+	{
+		$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/idMyGadget.css');
+		$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/phoneBurgerMenu.js');
+	}
 	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
 	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
-	$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/idMyGadget.css');
-//	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/j/idMyGadget.js');
 }
+
 //
 // Initialize markup for the optional "phone-burger" menus,
 //  depending on which ones, if any, are being used,
@@ -103,22 +164,39 @@ $phoneBurgerIconLeft->html = '';
 $phoneBurgerIconLeft->js = '';
 $phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
 $phoneBurgerIconLeft->useImage = FALSE;
-$phoneBurgerIconRight = new stdClass();
-$phoneBurgerIconRight->html = '';
-
 if ( $this->countModules('phone-burger-menu-left' ) )
 {
 	$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.jpg';
 	$phoneBurgerIconLeft->html = '<img id="phone-burger-menu-left" ' .
 		'width="50" height="50" ' .
-		'style="z-index: 1;" ' .
 		'src="templates/' . $phoneBurgerIconLeft->fileName . '">' .
 		'&nbsp;MenuL&nbsp;' . '</img>';
+	$phoneBurgerIconLeft->html .= '</a>';
 }
+
+$phoneBurgerIconRight = new stdClass();
+$phoneBurgerIconRight->html = '';
+$phoneBurgerIconRight->js = '';
+$phoneBurgerIconRight->fileName = '';      // used for hack needed for phones
+$phoneBurgerIconRight->useImage = FALSE;
 if ( $this->countModules('phone-burger-menu-right' ) )
 {
-	$phoneBurgerIconRight->html = '<canvas id="phone-burger-menu-right" width="50" height="50">' .
+	$phoneBurgerIconRight->html =
+		'<a href="#phone-burger-menu-right" class="pull-right" data-rel="dialog">';
+	$phoneBurgerIconRight->html .= '<canvas id="phone-burger-icon-right" ' .
+		'width="50" height="50">' .
 		'&nbsp;MenuR&nbsp;' . '</canvas>';
+	$phoneBurgerIconRight->html .= '</a>';
+	$phoneBurgerIconRight->js =
+		'<script>' .
+			'var phoneBurgerIconRightOptions = {};' .
+		//	'phoneBurgerIconRightOptions.color = "' .$this->params->get('phoneBurgerMenuRightColor') . '";' .
+		//	'phoneBurgerIconRightOptions.lineCap = "' .$this->params->get('phoneBurgerMenuRightLineCap') . '";' .
+		//	'phoneBurgerIconRightOptions.lineSize = "' .$this->params->get('phoneBurgerMenuRightLineSize') . '";' .
+			'phoneBurgerIconRightOptions.color = "#0000FF";' .
+			'phoneBurgerIconRightOptions.lineCap = "butt";' .
+			'phoneBurgerIconRightOptions.lineSize = "normal";' .
+		'</script>';
 }
 //
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
@@ -222,7 +300,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
-				header:(<header id="header">x
+				header:(<header id="header">
 					div.logoheader:"<div class="logoheader">
 						<?php echo 'pbm:' . $phoneBurgerIconLeft->html . ':pbm' ?>
 						h1#logo:!<h1 id="logo">
@@ -238,6 +316,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 						<span class="header1">
 						<?php echo htmlspecialchars($sitedescription); ?>
 						</span></h1>!:h1#logo
+						<?php echo 'pbm:' . $phoneBurgerIconRight->html . ':pbm' . $phoneBurgerIconRight->js ?>
 					</div>":div.logoheader<!-- end logoheader -->
 					ul.skiplinks::<ul class="skiplinks">
 						<li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ3_SKIP_TO_CONTENT'); ?></a></li>
