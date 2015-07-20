@@ -142,8 +142,7 @@ else
 //    http://demos.jquerymobile.com/1.0/docs/api/globalconfig.html
 //
 // --------------------------------------------------------------------------------------------
-// if ( $jmwsIdMyGadget->usingJQueryMobile )
-if ( TRUE )
+if ( $jmwsIdMyGadget->usingJQueryMobile )
 {
 	if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft ||
 	     $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight   )
@@ -156,22 +155,52 @@ if ( TRUE )
 }
 
 //
-// Initialize markup for the optional "phone-burger" menus,
-//  depending on which ones, if any, are being used,
+// If we are using one of the optional "phone-burger" menus,
+//    create markup and js code for them
+// Note: Everything that uses the phone burger icon file name is part of a hack we need
+//   because using the JS API to draw the phone burger menu is currently not working on phones
+//   except when we reload the page. It would be nice to be able to remove that someday....
 //
 $phoneBurgerIconLeft = new stdClass();
 $phoneBurgerIconLeft->html = '';
 $phoneBurgerIconLeft->js = '';
 $phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
 $phoneBurgerIconLeft->useImage = FALSE;
-if ( $this->countModules('phone-burger-menu-left' ) )
+if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft )
 {
-	$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.jpg';
-	$phoneBurgerIconLeft->html = '<img id="phone-burger-menu-left" ' .
-		'width="50" height="50" ' .
-		'src="templates/' . $phoneBurgerIconLeft->fileName . '">' .
-		'&nbsp;MenuL&nbsp;' . '</img>';
+	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+	{
+		$phoneBurgerIconLeft->fileName = $this->template . '/images/phoneBurgerMenuIconLeft.jpg';
+		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconLeft->fileName) )
+		{
+			$phoneBurgerIconLeft->useImage = TRUE;
+		}
+	}
+	$phoneBurgerIconLeft->html = '<a href="#phone-burger-menu-left" data-rel="dialog">';
+	if ( $phoneBurgerIconLeft->useImage )
+	{
+		$phoneBurgerIconLeft->html .=
+			'<img id="phone-burger-icon-image-left" ' .
+				'width="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
+				'src="templates/' . $phoneBurgerIconLeft->fileName . '" />';
+	}
+	else
+	{
+		$phoneBurgerIconLeft->html .=
+			'<canvas id="phone-burger-icon-left" ' .
+				'width="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuLeftSize') . '">' .
+				'&nbsp;Menu&nbsp;' . '</canvas>';
+	}
 	$phoneBurgerIconLeft->html .= '</a>';
+	$phoneBurgerIconLeft->js =
+		'<script>' .
+			'var phoneBurgerIconLeftOptions = {};' .
+			'phoneBurgerIconLeftOptions.color = "' . $this->params->get('phoneBurgerMenuLeftColor') . '";' .
+			'phoneBurgerIconLeftOptions.lineCap = "' . $this->params->get('phoneBurgerMenuLeftLineCap') . '";' .
+			'phoneBurgerIconLeftOptions.lineSize = "' . $this->params->get('phoneBurgerMenuLeftLineSize') . '";' .
+		'</script>';
 }
 
 $phoneBurgerIconRight = new stdClass();
@@ -179,23 +208,78 @@ $phoneBurgerIconRight->html = '';
 $phoneBurgerIconRight->js = '';
 $phoneBurgerIconRight->fileName = '';      // used for hack needed for phones
 $phoneBurgerIconRight->useImage = FALSE;
-if ( $this->countModules('phone-burger-menu-right' ) )
+if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
 {
+	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+	{
+		$phoneBurgerIconRight->fileName = $this->template . '/images/phoneBurgerMenuIconRight.jpg';
+		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
+		{
+			$phoneBurgerIconRight->useImage = TRUE;
+		}
+	}
 	$phoneBurgerIconRight->html =
 		'<a href="#phone-burger-menu-right" class="pull-right" data-rel="dialog">';
-	$phoneBurgerIconRight->html .= '<canvas id="phone-burger-icon-right" ' .
-		'width="50" height="50">' .
-		'&nbsp;MenuR&nbsp;' . '</canvas>';
+	if ( $phoneBurgerIconRight->useImage )
+	{
+		$phoneBurgerIconRight->html .=
+			'<img id="phone-burger-icon-image-right"' .
+				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				' src="templates/' . $phoneBurgerIconRight->fileName . '" />';
+	}
+	else
+	{
+		$phoneBurgerIconRight->html .=
+			'<canvas id="phone-burger-icon-right" ' .
+				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '">' .
+				'&nbsp;Menu&nbsp;' . '</canvas>';
+	}
 	$phoneBurgerIconRight->html .= '</a>';
 	$phoneBurgerIconRight->js =
 		'<script>' .
 			'var phoneBurgerIconRightOptions = {};' .
-		//	'phoneBurgerIconRightOptions.color = "' .$this->params->get('phoneBurgerMenuRightColor') . '";' .
-		//	'phoneBurgerIconRightOptions.lineCap = "' .$this->params->get('phoneBurgerMenuRightLineCap') . '";' .
-		//	'phoneBurgerIconRightOptions.lineSize = "' .$this->params->get('phoneBurgerMenuRightLineSize') . '";' .
-			'phoneBurgerIconRightOptions.color = "#0000FF";' .
-			'phoneBurgerIconRightOptions.lineCap = "butt";' .
-			'phoneBurgerIconRightOptions.lineSize = "normal";' .
+			'phoneBurgerIconRightOptions.color = "' . $this->params->get('phoneBurgerMenuRightColor') . '";' .
+			'phoneBurgerIconRightOptions.lineCap = "' . $this->params->get('phoneBurgerMenuRightLineCap') . '";' .
+			'phoneBurgerIconRightOptions.lineSize = "' . $this->params->get('phoneBurgerMenuRightLineSize') . '";' .
+		'</script>';
+}
+if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
+{
+	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+	{
+		$phoneBurgerIconRight->fileName = $this->template . '/images/phoneBurgerMenuIconRight.jpg';
+		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
+		{
+			$phoneBurgerIconRight->useImage = TRUE;
+		}
+	}
+	$phoneBurgerIconRight->html =
+		'<a href="#phone-burger-menu-right" class="pull-right" data-rel="dialog">';
+	if ( $phoneBurgerIconRight->useImage )
+	{
+		$phoneBurgerIconRight->html .=
+			'<img id="phone-burger-icon-image-right"' .
+				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				' src="templates/' . $phoneBurgerIconRight->fileName . '" />';
+	}
+	else
+	{
+		$phoneBurgerIconRight->html .=
+			'<canvas id="phone-burger-icon-right" ' .
+				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
+				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '">' .
+				'&nbsp;Menu&nbsp;' . '</canvas>';
+	}
+	$phoneBurgerIconRight->html .= '</a>';
+	$phoneBurgerIconRight->js =
+		'<script>' .
+			'var phoneBurgerIconRightOptions = {};' .
+			'phoneBurgerIconRightOptions.color = "' . $this->params->get('phoneBurgerMenuRightColor') . '";' .
+			'phoneBurgerIconRightOptions.lineCap = "' . $this->params->get('phoneBurgerMenuRightLineCap') . '";' .
+			'phoneBurgerIconRightOptions.lineSize = "' . $this->params->get('phoneBurgerMenuRightLineSize') . '";' .
 		'</script>';
 }
 //
@@ -231,7 +315,7 @@ $jqm_data_role_content = '';
 $jqm_data_role_footer = '';
 $jqm_data_theme_attribute = '';
 
-if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->usingJQueryMobile )
 {
 	$jqm_data_role_page = 'data-role="page"';
 	$jqm_data_role_header = 'data-role="header"';
@@ -277,7 +361,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 	</head>
 	<body id="shadow">
 		<?php
-			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+			if ( $jmwsIdMyGadget->usingJQueryMobile )
 			{
 				print '<div ' .  $jqm_data_role_page . '>';
 			}
@@ -295,7 +379,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 
 		<div id="all">
 			<div id="back">
-				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+				<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
 					<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
@@ -325,8 +409,8 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 							<li><a href="#right" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_INFO'); ?></a></li>
 						<?php endif; ?>
 					</ul>::ul.skiplinks
-				<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
-				<?php endif; ?>
+		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
+		<?php endif; ?>
 					<h2 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAV_VIEW_SEARCH'); ?></h2>
 					<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAVIGATION'); ?></h3>
 					pos-1:[<jdoc:include type="modules" name="position-1" />]:pos-1
@@ -415,7 +499,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			<div id="footer-sub">
 				<?php
 					if ( $this->countModules('position-14') ||
-					     $jmwsIdMyGadget->getGadgetString() !== JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+					     $jmwsIdMyGadget->usingJQueryMobile ) : ?>
 					<footer id="footer">
 						<jdoc:include type="modules" name="position-14" />
 					</footer> <!-- end footer -->
@@ -423,7 +507,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
-		<?php if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE ) : ?>
+		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
 			<div <?php echo $jqm_data_role_footer . ' ' . $jqm_data_theme_attribute ?> >
 				<jdoc:include type="modules" name="phone-footer-nav" />
 			</div>
@@ -444,7 +528,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 			}
 		?>
 		<?php
-			if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+			if ( $jmwsIdMyGadget->usingJQueryMobile )
 			{
 				print '</div> <!-- ' .  $jqm_data_role_page . '-->';
 			}
