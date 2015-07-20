@@ -58,12 +58,6 @@ phoneBurgerMenu.drawPhoneBurgerMenuIcon = function (canvasElement, phoneBurgerIc
 	var secondBarMidpoint = topMargin+barHeight+gapHeight;
 	var thirdBarMidpoint = topMargin + 2*(barHeight+gapHeight);
 
-	console.log( 'FINAL, leftMargin: ' + leftMargin );
-	console.log( 'FINAL, topMargin: ' + topMargin );
-	console.log( 'FINAL, barHeight: ' + barHeight );
-	console.log( 'FINAL, barWidth: ' + barWidth );
-	console.log( 'FINAL, gapHeight: ' + gapHeight );
-
 	context.save();
 	context.beginPath();
 	context.strokeStyle = phoneBurgerIconOptions.color;
