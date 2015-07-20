@@ -9,4 +9,8 @@
 h1#logo {
 	display: inline;
 }
+#phone-burger-icon-image-right,
+#phone-burger-icon-image-left {
+	z-index: 1;
+}
 
