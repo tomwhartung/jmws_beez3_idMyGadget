@@ -70,18 +70,6 @@
 					<option value="mobile_detect">Mobile Detect</option>
 					<option value="tera_wurfl">Tera Wurfl</option>
 				</field>
-				<field
-					name="jqm_data_theme"
-					type="list"
-					label="TPL_IDMYGADGET_FIELD_JQM_DATA_THEME_LABEL"
-					description="TPL_IDMYGADGET_FIELD_JQM_DATA_THEME_DESC">
-					<option value="none">none</option>
-					<option value="a">a</option>
-					<option value="b">b</option>
-					<option value="c">c</option>
-					<option value="d">d</option>
-					<option value="e">e</option>
-				</field>
 
 				<field type="spacer" name="spacerPhone" class="text"
 					label="TPL_BEEZ3_HEADER_PARAMS_PHONE" />
@@ -124,6 +112,21 @@
 					label="TPL_BEEZ3_SITEDESCRIPTION_DESKTOP_LABEL"
 					description="TPL_BEEZ3_SITEDESCRIPTION_DESKTOP_DESC"
 					filter="string" />
+			</fieldset>
+
+			<fieldset name="phonenav">
+				<field
+					name="jqm_data_theme"
+					type="list"
+					label="TPL_IDMYGADGET_FIELD_JQM_DATA_THEME_LABEL"
+					description="TPL_IDMYGADGET_FIELD_JQM_DATA_THEME_DESC">
+					<option value="none">none</option>
+					<option value="a">a</option>
+					<option value="b">b</option>
+					<option value="c">c</option>
+					<option value="d">d</option>
+					<option value="e">e</option>
+				</field>
 			</fieldset>
 
 			<fieldset name="advanced">
