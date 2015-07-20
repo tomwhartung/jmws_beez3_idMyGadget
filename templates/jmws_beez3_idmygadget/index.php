@@ -58,12 +58,6 @@ if ($this->direction == 'rtl')
 	}
 }
 
-JHtml::_('bootstrap.framework');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/md_stylechanger.js', 'text/javascript');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/hide.js', 'text/javascript');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/respond.src.js', 'text/javascript');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/template.js', 'text/javascript');
-
 //
 // Initialize Device Detection
 //
@@ -84,6 +78,26 @@ else
 {
 	$jmwsIdMyGadget = new JmwsIdMyGadgetJoomla( 'detect_mobile_browsers' );
 }
+//
+// I do not like the way the font size div appears on phones, so take it out.
+// If we take it out (later), including md_stylechanger.js throws an error, so take that out too (here).
+//
+$includeFontsizeDiv = TRUE;
+if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+{
+	$includeFontsizeDiv = FALSE;
+}
+
+JHtml::_('bootstrap.framework');
+// $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/md_stylechanger.js', 'text/javascript');
+if ( $includeFontsizeDiv )
+{
+	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/md_stylechanger.js', 'text/javascript');
+}
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/hide.js', 'text/javascript');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/respond.src.js', 'text/javascript');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/template.js', 'text/javascript');
+
 //
 // Determine whether we want to include jQuery mobile:
 // o  If the device is a phone include it (we always use it on phones)
@@ -249,10 +263,8 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
 // This is also an excellent place to set other values as appropriate
 //
-$includeFontsizeDiv = TRUE;
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
-	$includeFontsizeDiv = FALSE;
 	$logo = $this->params->get('logoFilePhone');
 	$sitetitle = $this->params->get('sitetitlePhone');
 	$sitedescription = $this->params->get('sitedescriptionPhone');
