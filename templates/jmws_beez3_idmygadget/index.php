@@ -386,7 +386,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				<?php endif; ?>
 				header:(<header id="header">
 					div.logoheader:"<div class="logoheader">
-						<?php echo 'pbm:' . $phoneBurgerIconLeft->html . ':pbm' ?>
+						<?php echo 'pbm-l:' . $phoneBurgerIconLeft->html . ':pbm-l' . $phoneBurgerIconLeft->js ?>
 						h1#logo:!<h1 id="logo">
 						<?php if ($logo) : ?>
 							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
@@ -400,7 +400,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 						<span class="header1">
 						<?php echo htmlspecialchars($sitedescription); ?>
 						</span></h1>!:h1#logo
-						<?php echo 'pbm:' . $phoneBurgerIconRight->html . ':pbm' . $phoneBurgerIconRight->js ?>
+						<?php echo 'pbm-r:' . $phoneBurgerIconRight->html . ':pbm-r' . $phoneBurgerIconRight->js ?>
 					</div>":div.logoheader<!-- end logoheader -->
 					ul.skiplinks::<ul class="skiplinks">
 						<li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ3_SKIP_TO_CONTENT'); ?></a></li>
