@@ -23,11 +23,13 @@ phoneBurgerMenu.drawPhoneBurgerMenuIcons = function () {
 	phoneBurgerMenu.leftElement = document.getElementById( 'phone-burger-icon-left' );
 	phoneBurgerMenu.rightElement = document.getElementById( 'phone-burger-icon-right' );
 
-	if ( typeof phoneBurgerIconLeftOptions !== 'undefined' ) {     // options are set in the admin console
+	if ( phoneBurgerMenu.leftElement !== null &&
+	     typeof phoneBurgerIconLeftOptions !== 'undefined' ) {     // options are set in the admin console
 		phoneBurgerMenu.drawPhoneBurgerMenuIcon(
 			phoneBurgerMenu.leftElement, phoneBurgerIconLeftOptions );
 	}
-	if ( typeof phoneBurgerIconRightOptions !== 'undefined' ) {     // options are set in the admin console
+	if ( phoneBurgerMenu.rightElement !== null &&
+	     typeof phoneBurgerIconRightOptions !== 'undefined' ) {     // options are set in the admin console
 		phoneBurgerMenu.drawPhoneBurgerMenuIcon(
 			phoneBurgerMenu.rightElement, phoneBurgerIconRightOptions );
 	}
