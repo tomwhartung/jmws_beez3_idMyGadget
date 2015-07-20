@@ -3,6 +3,10 @@
  * in the protostar theme.
  *
  */
-h2.site-title {
+#phone-burger-icon-image-right,
+#phone-burger-icon-image-left,
+#logo img,
+h1#logo {
 	display: inline;
 }
+

@@ -321,6 +321,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 		<!--[if IE 7]>
 		<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/ie7only.css" rel="stylesheet" type="text/css" />
 		<![endif]-->
+		<?php echo $phoneBurgerIconLeft->js . $phoneBurgerIconRight->js ?>
 	</head>
 	<body id="shadow">
 		<?php
@@ -349,8 +350,8 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				<?php endif; ?>
 				header:(<header id="header">
 					div.logoheader:"<div class="logoheader">
-						<?php echo 'pbm-l:' . $phoneBurgerIconLeft->html . ':pbm-l' . $phoneBurgerIconLeft->js ?>
 						h1#logo:!<h1 id="logo">
+						<?php echo $phoneBurgerIconLeft->html . $phoneBurgerIconLeft->js ?>
 						<?php if ($logo) : ?>
 							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
 								  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
@@ -360,10 +361,10 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 						<?php elseif (!$logo AND $config->get('sitename')) : ?>
 							<?php echo htmlspecialchars($config->get('sitename')); ?>
 						<?php endif; ?>
+						<?php echo $phoneBurgerIconRight->html . $phoneBurgerIconRight->js ?>
 						<span class="header1">
 						<?php echo htmlspecialchars($sitedescription); ?>
 						</span></h1>!:h1#logo
-						<?php echo 'pbm-r:' . $phoneBurgerIconRight->html . ':pbm-r' . $phoneBurgerIconRight->js ?>
 					</div>":div.logoheader<!-- end logoheader -->
 					ul.skiplinks::<ul class="skiplinks">
 						<li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ3_SKIP_TO_CONTENT'); ?></a></li>
