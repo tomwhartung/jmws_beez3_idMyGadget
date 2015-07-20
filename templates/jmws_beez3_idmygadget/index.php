@@ -533,5 +533,12 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				print '</div> <!-- ' .  $jqm_data_role_page . '-->';
 			}
 		?>
+		<?php
+			if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft ||
+			     $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight ) :
+			?>
+			<jdoc:include type="modules" name="phone-burger-menu-left" style="none" />
+			<jdoc:include type="modules" name="phone-burger-menu-right" style="none" />
+		<?php endif;?>
 	</body>
 </html>
