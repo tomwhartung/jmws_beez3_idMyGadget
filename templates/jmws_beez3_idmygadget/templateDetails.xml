@@ -114,6 +114,122 @@
 					filter="string" />
 			</fieldset>
 
+			<fieldset name="hamburgernav">
+				<field type="spacer" name="spacerPhoneBurgerMenuLeft" class="text"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT" />
+				<field name="phoneBurgerMenuLeftOnTablet"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_ON_TABLET_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_ON_TABLET_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="phoneBurgerMenuLeftOnDesktop"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_ON_DESKTOP_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_ON_DESKTOP_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="phoneBurgerMenuLeftSize"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_SIZE_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_SIZE_DESC">
+					<option value="55">55x55</option>
+					<option value="11">11x11</option>
+					<option value="22">22x22</option>
+					<option value="33">33x33</option>
+					<option value="44">44x44</option>
+					<option value="55">55x55</option>
+					<option value="66">66x66</option>
+					<option value="77">77x77</option>
+					<option value="88">88x88</option>
+				</field>
+				<field name="phoneBurgerMenuLeftColor" class="" type="color" default="grey"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_COLOR_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_COLOR_DESC" />
+				<field
+					name="phoneBurgerMenuLeftLineCap"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_LINE_CAP_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_LINE_CAP_DESC">
+					<option value="round">round</option>
+					<option value="square">square</option>
+					<option value="butt">butt</option>
+				</field>
+				<field
+					name="phoneBurgerMenuLeftLineSize"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_LINE_SIZE_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_LEFT_LINE_SIZE_DESC">
+					<option value="normal">normal</option>
+					<option value="fat">fat</option>
+					<option value="thin">thin</option>
+				</field>
+
+				<field type="spacer" name="spacerPhoneBurgerMenuRight" class="text"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT" />
+				<field name="phoneBurgerMenuRightOnTablet"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_ON_TABLET_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_ON_TABLET_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="phoneBurgerMenuRightOnDesktop"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_ON_DESKTOP_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_ON_DESKTOP_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="phoneBurgerMenuRightSize"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_SIZE_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_SIZE_DESC">
+					<option value="55">55x55</option>
+					<option value="11">11x11</option>
+					<option value="22">22x22</option>
+					<option value="33">33x33</option>
+					<option value="44">44x44</option>
+					<option value="55">55x55</option>
+					<option value="66">66x66</option>
+					<option value="77">77x77</option>
+					<option value="88">88x88</option>
+				</field>
+					<field name="phoneBurgerMenuRightColor" class="" type="color" default="grey"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_COLOR_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_COLOR_DESC" />
+				<field
+					name="phoneBurgerMenuRightLineCap"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_LINE_CAP_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_LINE_CAP_DESC">
+					<option value="round">round</option>
+					<option value="square">square</option>
+					<option value="butt">butt</option>
+				</field>
+				<field
+					name="phoneBurgerMenuRightLineSize"
+					type="list"
+					label="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_LINE_SIZE_LABEL"
+					description="TPL_IDMYGADGET_PHONE_BURGER_MENU_RIGHT_LINE_SIZE_DESC">
+					<option value="normal">normal</option>
+					<option value="fat">fat</option>
+					<option value="thin">thin</option>
+				</field>
+			</fieldset>
+
 			<fieldset name="phonenav">
 				<field
 					name="jqm_data_theme"
