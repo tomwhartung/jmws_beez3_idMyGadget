@@ -170,7 +170,7 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft )
 {
 	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 	{
-		$phoneBurgerIconLeft->fileName = $this->template . '/images/phoneBurgerMenuIconLeft.jpg';
+		$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.jpg';
 		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconLeft->fileName) )
 		{
 			$phoneBurgerIconLeft->useImage = TRUE;
@@ -212,44 +212,7 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
 {
 	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 	{
-		$phoneBurgerIconRight->fileName = $this->template . '/images/phoneBurgerMenuIconRight.jpg';
-		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
-		{
-			$phoneBurgerIconRight->useImage = TRUE;
-		}
-	}
-	$phoneBurgerIconRight->html =
-		'<a href="#phone-burger-menu-right" class="pull-right" data-rel="dialog">';
-	if ( $phoneBurgerIconRight->useImage )
-	{
-		$phoneBurgerIconRight->html .=
-			'<img id="phone-burger-icon-image-right"' .
-				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				' src="templates/' . $phoneBurgerIconRight->fileName . '" />';
-	}
-	else
-	{
-		$phoneBurgerIconRight->html .=
-			'<canvas id="phone-burger-icon-right" ' .
-				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '">' .
-				'&nbsp;Menu&nbsp;' . '</canvas>';
-	}
-	$phoneBurgerIconRight->html .= '</a>';
-	$phoneBurgerIconRight->js =
-		'<script>' .
-			'var phoneBurgerIconRightOptions = {};' .
-			'phoneBurgerIconRightOptions.color = "' . $this->params->get('phoneBurgerMenuRightColor') . '";' .
-			'phoneBurgerIconRightOptions.lineCap = "' . $this->params->get('phoneBurgerMenuRightLineCap') . '";' .
-			'phoneBurgerIconRightOptions.lineSize = "' . $this->params->get('phoneBurgerMenuRightLineSize') . '";' .
-		'</script>';
-}
-if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
-{
-	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
-	{
-		$phoneBurgerIconRight->fileName = $this->template . '/images/phoneBurgerMenuIconRight.jpg';
+		$phoneBurgerIconRight->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconRight.jpg';
 		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
 		{
 			$phoneBurgerIconRight->useImage = TRUE;
