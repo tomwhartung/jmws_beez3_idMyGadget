@@ -360,44 +360,44 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
-				header:(<header id="header">
-					div.logoheader:"<div class="logoheader">
-						h1#logo:!<h1 id="logo">
-						<?php echo $phoneBurgerIconLeft->html . $phoneBurgerIconLeft->js ?>
-						<?php if ($logo) : ?>
-							<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
-								  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
-						<?php endif;?>
-						<?php if (!$logo AND $sitetitle) : ?>
-							<?php echo htmlspecialchars($sitetitle); ?>
-						<?php elseif (!$logo AND $config->get('sitename')) : ?>
-							<?php echo htmlspecialchars($config->get('sitename')); ?>
-						<?php endif; ?>
-						<?php echo $phoneBurgerIconRight->html . $phoneBurgerIconRight->js ?>
-						<span class="header1">
-						<?php echo htmlspecialchars($sitedescription); ?>
-						</span></h1>!:h1#logo
-					</div>":div.logoheader<!-- end logoheader -->
-					ul.skiplinks::<ul class="skiplinks">
+				(<header id="header">
+					<div class="logoheader">
+						<h1 id="logo">
+							<?php echo $phoneBurgerIconLeft->html . $phoneBurgerIconLeft->js ?>
+							<?php if ($logo) : ?>
+								<img src="<?php echo $this->baseurl; ?>/<?php echo htmlspecialchars($logo); ?>"
+									  alt="<?php echo htmlspecialchars($sitetitle); ?>" />
+							<?php endif;?>
+							<?php if (!$logo AND $sitetitle) : ?>
+								<?php echo htmlspecialchars($sitetitle); ?>
+							<?php elseif (!$logo AND $config->get('sitename')) : ?>
+								<?php echo htmlspecialchars($config->get('sitename')); ?>
+							<?php endif; ?>
+							<?php echo $phoneBurgerIconRight->html . $phoneBurgerIconRight->js ?>
+							<span class="header1">
+								<?php echo htmlspecialchars($sitedescription); ?></span>
+						</h1>
+					</div> <!-- end logoheader -->
+					<ul class="skiplinks">
 						<li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ3_SKIP_TO_CONTENT'); ?></a></li>
 						<li><a href="#nav" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_NAV'); ?></a></li>
 						<?php if ($showRightColumn) : ?>
 							<li><a href="#right" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_INFO'); ?></a></li>
 						<?php endif; ?>
-					</ul>::ul.skiplinks
+					</ul>
 		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
 		<?php endif; ?>
 					<h2 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAV_VIEW_SEARCH'); ?></h2>
 					<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAVIGATION'); ?></h3>
-					pos-1:[<jdoc:include type="modules" name="position-1" />]:pos-1
-					line:{<div id="line">
+					<jdoc:include type="modules" name="position-1" />
+					<div id="line">
 						<?php if ( $includeFontsizeDiv ) : ?>
 							<div id="fontsize"></div>
 						<?php endif; ?>
 						<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_SEARCH'); ?></h3>
 						<jdoc:include type="modules" name="position-0" />
-					</div>}:line <!-- end line -->
-				</header>):header<!-- end header -->
+					</div> <!-- end line -->
+				</header> <!-- end header -->
 				<div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>"
 						<?php echo $jqm_data_role_content ?> >
 					<div id="breadcrumbs">
