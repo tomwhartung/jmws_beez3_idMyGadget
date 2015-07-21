@@ -106,7 +106,6 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 $jmwsIdMyGadget->usingJQueryMobile = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = FALSE;
-
 if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
 {
 	$jmwsIdMyGadget->usingJQueryMobile = TRUE;    // always use it on phones
@@ -184,7 +183,7 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft )
 {
 	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 	{
-		$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.jpg';
+		$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.png';
 		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconLeft->fileName) )
 		{
 			$phoneBurgerIconLeft->useImage = TRUE;
@@ -226,7 +225,7 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
 {
 	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 	{
-		$phoneBurgerIconRight->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconRight.jpg';
+		$phoneBurgerIconRight->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconRight.png';
 		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
 		{
 			$phoneBurgerIconRight->useImage = TRUE;
