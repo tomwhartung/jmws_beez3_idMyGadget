@@ -385,8 +385,6 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 							<li><a href="#right" class="u2"><?php echo JText::_('TPL_BEEZ3_JUMP_TO_INFO'); ?></a></li>
 						<?php endif; ?>
 					</ul>
-		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
-		<?php endif; ?>
 					<h2 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAV_VIEW_SEARCH'); ?></h2>
 					<h3 class="unseen"><?php echo JText::_('TPL_BEEZ3_NAVIGATION'); ?></h3>
 					<jdoc:include type="modules" name="position-1" />
