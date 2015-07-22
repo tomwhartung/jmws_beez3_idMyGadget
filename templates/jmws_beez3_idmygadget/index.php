@@ -83,7 +83,7 @@ else
 // If we take it out (later), including md_stylechanger.js throws an error, so take that out too (here).
 //
 $includeFontsizeDiv = TRUE;
-if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 {
 	$includeFontsizeDiv = FALSE;
 }
@@ -106,7 +106,7 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 $jmwsIdMyGadget->usingJQueryMobile = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = FALSE;
-if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 {
 	$jmwsIdMyGadget->usingJQueryMobile = TRUE;    // always use it on phones
 	if ( $this->countModules('phone-burger-menu-left') )
@@ -118,7 +118,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE 
 		$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = TRUE;
 	}
 }
-else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
+else if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_TABLET )
 {
 	if ( $this->countModules('phone-burger-menu-left') &&
 	     $this->params->get('phoneBurgerMenuLeftOnTablet') )
@@ -163,8 +163,8 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 		$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/idMyGadget.css');
 		$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/phoneBurgerMenu.js');
 	}
-	$doc->addStyleSheet( JmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
-	$doc->addScript( JmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
+	$doc->addStyleSheet( $jmwsIdMyGadget::JQUERY_MOBILE_CSS_URL );
+	$doc->addScript( $jmwsIdMyGadget::JQUERY_MOBILE_JS_URL );
 }
 
 //
@@ -262,13 +262,13 @@ if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
 // This is also an excellent place to set other values as appropriate
 //
-if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
 {
 	$logo = $this->params->get('logoFilePhone');
 	$sitetitle = $this->params->get('sitetitlePhone');
 	$sitedescription = $this->params->get('sitedescriptionPhone');
 }
-else if ( $jmwsIdMyGadget->getGadgetString() === JmwsIdMyGadget::GADGET_STRING_TABLET )
+else if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_TABLET )
 {
 	$logo = $this->params->get('logoFileTablet');
 	$sitetitle = $this->params->get('sitetitleTablet');
