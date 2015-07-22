@@ -64,6 +64,7 @@ if ($this->direction == 'rtl')
 global $jmwsIdMyGadget;
 $jmwsIdMyGadget = null;
 require_once 'jmws_idMyGadget_for_joomla/JmwsIdMyGadgetJoomla.php';
+require_once 'jmws_idMyGadget_for_joomla/PhoneBurgerMenuIcon.php';
 $gadgetDetector = $this->params->get('gadgetDetector');
 
 if ( $gadgetDetector == 'mobile_detect' )
