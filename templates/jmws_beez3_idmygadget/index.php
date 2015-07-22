@@ -359,7 +359,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 						<jdoc:include type="modules" name="phone-header-nav" style="none" />
 					</div>
 				<?php endif; ?>
-				(<header id="header">
+				<header id="header">
 					<div class="logoheader">
 						<h1 id="logo">
 							<?php echo $phoneBurgerIconLeft->html . $phoneBurgerIconLeft->js ?>
