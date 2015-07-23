@@ -177,55 +177,9 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 //
 $phoneBurgerIconLeft = new PhoneBurgerMenuIcon(
 		PhoneBurgerMenuIcon::LEFT, $this->template, $this->params, $jmwsIdMyGadget );
+$phoneBurgerIconRight = new PhoneBurgerMenuIcon(
+		PhoneBurgerMenuIcon::RIGHT, $this->template, $this->params, $jmwsIdMyGadget );
 
-// $phoneBurgerIconLeft = new stdClass();
-// $phoneBurgerIconLeft->html = '';
-// $phoneBurgerIconLeft->js = '';
-// $phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
-// $phoneBurgerIconLeft->useImage = FALSE;
-
-$phoneBurgerIconRight = new stdClass();
-$phoneBurgerIconRight->html = '';
-$phoneBurgerIconRight->js = '';
-$phoneBurgerIconRight->fileName = '';      // used for hack needed for phones
-$phoneBurgerIconRight->useImage = FALSE;
-if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight )
-{
-	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
-	{
-		$phoneBurgerIconRight->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconRight.png';
-		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconRight->fileName) )
-		{
-			$phoneBurgerIconRight->useImage = TRUE;
-		}
-	}
-	$phoneBurgerIconRight->html =
-		'<a href="#phone-burger-menu-right" class="pull-right" data-rel="dialog">';
-	if ( $phoneBurgerIconRight->useImage )
-	{
-		$phoneBurgerIconRight->html .=
-			'<img id="phone-burger-icon-image-right"' .
-				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				' src="templates/' . $phoneBurgerIconRight->fileName . '" />';
-	}
-	else
-	{
-		$phoneBurgerIconRight->html .=
-			'<canvas id="phone-burger-icon-right" ' .
-				'width="' . $this->params->get('phoneBurgerMenuRightSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuRightSize') . '">' .
-				'&nbsp;Menu&nbsp;' . '</canvas>';
-	}
-	$phoneBurgerIconRight->html .= '</a>';
-	$phoneBurgerIconRight->js =
-		'<script>' .
-			'var phoneBurgerIconRightOptions = {};' .
-			'phoneBurgerIconRightOptions.color = "' . $this->params->get('phoneBurgerMenuRightColor') . '";' .
-			'phoneBurgerIconRightOptions.lineCap = "' . $this->params->get('phoneBurgerMenuRightLineCap') . '";' .
-			'phoneBurgerIconRightOptions.lineSize = "' . $this->params->get('phoneBurgerMenuRightLineSize') . '";' .
-		'</script>';
-}
 //
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
 // This is also an excellent place to set other values as appropriate
