@@ -175,47 +175,14 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 //   because using the JS API to draw the phone burger menu is currently not working on phones
 //   except when we reload the page. It would be nice to be able to remove that someday....
 //
-$phoneBurgerIconLeft = new stdClass();
-$phoneBurgerIconLeft->html = '';
-$phoneBurgerIconLeft->js = '';
-$phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
-$phoneBurgerIconLeft->useImage = FALSE;
-if ( $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft )
-{
-	if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
-	{
-		$phoneBurgerIconLeft->fileName = $this->template . '/images/idMyGadget/phoneBurgerMenuIconLeft.png';
-		if ( file_exists(JPATH_THEMES . DS . $phoneBurgerIconLeft->fileName) )
-		{
-			$phoneBurgerIconLeft->useImage = TRUE;
-		}
-	}
-	$phoneBurgerIconLeft->html = '<a href="#phone-burger-menu-left" data-rel="dialog">';
-	if ( $phoneBurgerIconLeft->useImage )
-	{
-		$phoneBurgerIconLeft->html .=
-			'<img id="phone-burger-icon-image-left" ' .
-				'width="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
-				'src="templates/' . $phoneBurgerIconLeft->fileName . '" />';
-	}
-	else
-	{
-		$phoneBurgerIconLeft->html .=
-			'<canvas id="phone-burger-icon-left" ' .
-				'width="' . $this->params->get('phoneBurgerMenuLeftSize') . '" ' .
-				'height="' . $this->params->get('phoneBurgerMenuLeftSize') . '">' .
-				'&nbsp;Menu&nbsp;' . '</canvas>';
-	}
-	$phoneBurgerIconLeft->html .= '</a>';
-	$phoneBurgerIconLeft->js =
-		'<script>' .
-			'var phoneBurgerIconLeftOptions = {};' .
-			'phoneBurgerIconLeftOptions.color = "' . $this->params->get('phoneBurgerMenuLeftColor') . '";' .
-			'phoneBurgerIconLeftOptions.lineCap = "' . $this->params->get('phoneBurgerMenuLeftLineCap') . '";' .
-			'phoneBurgerIconLeftOptions.lineSize = "' . $this->params->get('phoneBurgerMenuLeftLineSize') . '";' .
-		'</script>';
-}
+$phoneBurgerIconLeft = new PhoneBurgerMenuIcon(
+		PhoneBurgerMenuIcon::LEFT, $this->template, $this->params, $jmwsIdMyGadget );
+
+// $phoneBurgerIconLeft = new stdClass();
+// $phoneBurgerIconLeft->html = '';
+// $phoneBurgerIconLeft->js = '';
+// $phoneBurgerIconLeft->fileName = '';      // used for hack needed for phones
+// $phoneBurgerIconLeft->useImage = FALSE;
 
 $phoneBurgerIconRight = new stdClass();
 $phoneBurgerIconRight->html = '';
