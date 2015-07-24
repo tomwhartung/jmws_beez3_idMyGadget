@@ -173,9 +173,9 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 //    create markup and js code for them
 //
 $phoneBurgerIconLeft = new PhoneBurgerMenuIcon(
-		PhoneBurgerMenuIcon::LEFT, $this->template, $this->params, $jmwsIdMyGadget );
+		PhoneBurgerMenuIcon::LEFT, $this->params, $jmwsIdMyGadget, $this->template );
 $phoneBurgerIconRight = new PhoneBurgerMenuIcon(
-		PhoneBurgerMenuIcon::RIGHT, $this->template, $this->params, $jmwsIdMyGadget );
+		PhoneBurgerMenuIcon::RIGHT, $this->params, $jmwsIdMyGadget, $this->template );
 
 //
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
