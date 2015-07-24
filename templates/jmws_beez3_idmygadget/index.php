@@ -171,9 +171,6 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 //
 // If we are using one of the optional "phone-burger" menus,
 //    create markup and js code for them
-// Note: Everything that uses the phone burger icon file name is part of a hack we need
-//   because using the JS API to draw the phone burger menu is currently not working on phones
-//   except when we reload the page. It would be nice to be able to remove that someday....
 //
 $phoneBurgerIconLeft = new PhoneBurgerMenuIcon(
 		PhoneBurgerMenuIcon::LEFT, $this->template, $this->params, $jmwsIdMyGadget );
