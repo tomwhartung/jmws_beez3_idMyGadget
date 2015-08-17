@@ -86,7 +86,7 @@ else
 // If we take it out (later), including md_stylechanger.js throws an error, so take that out too (here).
 //
 $includeFontsizeDiv = TRUE;
-if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->isPhone() )
 {
 	$includeFontsizeDiv = FALSE;
 }
@@ -109,7 +109,7 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 $jmwsIdMyGadget->usingJQueryMobile = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceLeft = FALSE;
 $jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = FALSE;
-if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->isPhone() )
 {
 	$jmwsIdMyGadget->usingJQueryMobile = TRUE;    // always use it on phones
 	if ( $this->countModules('phone-burger-menu-left') )
@@ -121,7 +121,7 @@ if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE
 		$jmwsIdMyGadget->phoneBurgerIconThisDeviceRight = TRUE;
 	}
 }
-else if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_TABLET )
+else if ( $jmwsIdMyGadget->isTablet() )
 {
 	if ( $this->countModules('phone-burger-menu-left') &&
 	     $this->params->get('phoneBurgerMenuLeftOnTablet') )
@@ -183,13 +183,13 @@ $phoneBurgerIconRight = new PhoneBurgerMenuIcon(
 // Set the logo (file) and sitetitle and sitedescription (text) to one of the device-specific values
 // This is also an excellent place to set other values as appropriate
 //
-if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_PHONE )
+if ( $jmwsIdMyGadget->isPhone() )
 {
 	$logo = $this->params->get('logoFilePhone');
 	$sitetitle = $this->params->get('sitetitlePhone');
 	$sitedescription = $this->params->get('sitedescriptionPhone');
 }
-else if ( $jmwsIdMyGadget->getGadgetString() === $jmwsIdMyGadget::GADGET_STRING_TABLET )
+else if ( $jmwsIdMyGadget->isTablet() )
 {
 	$logo = $this->params->get('logoFileTablet');
 	$sitetitle = $this->params->get('sitetitleTablet');
@@ -376,6 +376,9 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				</div> <!-- end contentarea -->
 			</div><!-- back -->
 		</div><!-- all -->
+		<p>$jmwsIdMyGadget->isPhone(): <?php echo $jmwsIdMyGadget->isPhone(); ?>
+		<p>$jmwsIdMyGadget->isTablet(): <?php echo $jmwsIdMyGadget->isTablet(); ?>
+		<p>$jmwsIdMyGadget->isDesktop(): <?php echo $jmwsIdMyGadget->isDesktop(); ?>
 
 		<div id="footer-outer">
 			<?php if ($showbottom) : ?>
