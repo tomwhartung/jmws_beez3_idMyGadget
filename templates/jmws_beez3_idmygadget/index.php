@@ -376,9 +376,6 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				</div> <!-- end contentarea -->
 			</div><!-- back -->
 		</div><!-- all -->
-		<p>$jmwsIdMyGadget->isPhone(): <?php echo $jmwsIdMyGadget->isPhone(); ?>
-		<p>$jmwsIdMyGadget->isTablet(): <?php echo $jmwsIdMyGadget->isTablet(); ?>
-		<p>$jmwsIdMyGadget->isDesktop(): <?php echo $jmwsIdMyGadget->isDesktop(); ?>
 
 		<div id="footer-outer">
 			<?php if ($showbottom) : ?>
