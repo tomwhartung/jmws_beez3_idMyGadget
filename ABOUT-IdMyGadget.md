@@ -14,12 +14,14 @@ Therefore you can feel free to download IdMyGadget&copy;, install the device det
 To see IdMyGadget&copy; in action (without Joomla!), see my resume:
 * http://tomwhartung.com/resume
 
-**To see the power of device detection, when coupled with jQuery Mobile, be sure to visit the site using both a mobile phone and a desktop PC!**
+Note that this is not responsive design, so you cannot simply shrink the window to see how the page looks on a mobile device.
+
+In other words, **to see the power of device detection,** in this case, when coupled with jQuery Mobile, **be sure to visit the site using both a mobile phone and a desktop PC!**
 
 Note that the source for my resume is in github here:
 * https://github.com/tomwhartung/resume
 
-My resume is also open source, so feel free to download it, add your own details (in json, following the examples in the js/*-examples.js files, and make your own mobile-friendly resume!
+My resume is also open source, so feel free to download it, add your own details (in json, following the examples in the js/*-examples.js files), and make your own mobile-friendly resume!
 
 ### About IdMyGadget for Joomla!
 For details about the specific IdMyGadget&copy; code I am using for integration with joomla, see the jmws_idMyGadget_for_joomla README.md file:

@@ -6,15 +6,20 @@ This is a work in progress (WIP), so anything but minimal documentation would be
 
 ## Installation:
 
-(Discover)
+1. git clone this repo
+
+2. use back-end Joomla Discover process
+
+3. Optional: using ln_joomla script!
+
 
 ## Beez3 Parameters:
 
 (Keep it minimal)
 
-## Parameters Added by IdMyGadget:
+## Parameters Added by jmws_beez3_idMyGadget:
 
-(It would be nice to have the site set up with demos and screen shots, so we can refer to that.)
+(It would be nice to have the site set up with demos and screen shots, so we can refer to all that.)
 
 
 ## About IdMyGadget:
