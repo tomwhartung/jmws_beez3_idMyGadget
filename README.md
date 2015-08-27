@@ -4,6 +4,19 @@ I am using this repo to integrate the default joomla Beez3 template with idMyGad
 ## Status:
 This is a work in progress (WIP), so anything but minimal documentation would be premature at this time.
 
+## Installation:
+
+(Discover)
+
+## Beez3 Parameters:
+
+(Keep it minimal)
+
+## Parameters Added by IdMyGadget:
+
+(It would be nice to have the site set up with demos and screen shots, so we can refer to that.)
+
+
 ## References:
 For details about idMyGadget, see the idMyGadget README.md file:
 * https://github.com/tomwhartung/idMyGadget/blob/master/README.md
