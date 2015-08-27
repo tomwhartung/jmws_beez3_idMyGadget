@@ -17,7 +17,7 @@ This is a work in progress (WIP), so anything but minimal documentation would be
 (It would be nice to have the site set up with demos and screen shots, so we can refer to that.)
 
 
-## About IdMyGadget &copy;:
+## About IdMyGadget:
 
-For information about the IdMyGadget Device Detection Adapter API, see the [About-IdMyGadget.md file in this directory](https://github.com/tomwhartung/jmws_beez3_idMyGadget/blob/master/ABOUT-IdMyGadget.md).
+For information about the IdMyGadget Device Detection Adapter API&copy;, see the [About-IdMyGadget.md file in this directory](https://github.com/tomwhartung/jmws_beez3_idMyGadget/blob/master/ABOUT-IdMyGadget.md).
 
