@@ -292,12 +292,10 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 
 		<div id="all">
 			<div id="back">
-				<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?> <!-- CAN WE DELETE THIS?  FIX THE ISSUE FIRST AND TRY IT AND SEE LATER!!!!!!! -->
-					<?php if ( $jmwsIdMyGadget->phoneHeaderNavThisDevice ) : ?>
-						<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
-							<jdoc:include type="modules" name="phone-header-nav" style="none" />
-						</div>
-					<?php endif; ?>
+				<?php if ( $jmwsIdMyGadget->phoneHeaderNavThisDevice ) : ?>
+					<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
+						<jdoc:include type="modules" name="phone-header-nav" style="none" />
+					</div>
 				<?php endif; ?>
 				<header id="header">
 					<div class="logoheader">
@@ -424,12 +422,10 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
-		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?> <!-- CAN WE DELETE THIS?  FIX THE ISSUE FIRST AND TRY IT AND SEE LATER!!!!!!! -->
-			<?php if ( $jmwsIdMyGadget->phoneFooterNavThisDevice ) : ?>
-				<div <?php echo $jqm_data_role_footer . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
-					<jdoc:include type="modules" name="phone-footer-nav" />
-				</div>
-			<?php endif; ?>
+		<?php if ( $jmwsIdMyGadget->phoneFooterNavThisDevice ) : ?>
+			<div <?php echo $jqm_data_role_footer . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
+				<jdoc:include type="modules" name="phone-footer-nav" />
+			</div>
 		<?php endif; ?>
 		<?php
 			// If the gadget-detector is not installed, generate an error message
