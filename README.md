@@ -34,9 +34,9 @@ However, I'd be happy to return to work on this, for a fee!  ;-)
 
 Installation of all jmws_* joomla extensions is the same.
 
-For details, see the:
-* [Installing Jmws Joomla Extensions](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/joomla/install.md) document
-* [Jmws Github Strategy](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/devops/cms_github_strategy.md) document
+For details, see the following documents in the [Jmws Accoutrements Repo on github](https://github.com/tomwhartung/jmws_accoutrements/):
+* [Installing Jmws Joomla Extensions document](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/joomla/install.md)
+* [Jmws Github Strategy document](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/devops/cms_github_strategy.md)
 
 ## Beez3 Parameters:
 
