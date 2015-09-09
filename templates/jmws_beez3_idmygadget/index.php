@@ -102,6 +102,23 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/template.js', 'text/javascript');
 
 //
+// The jQuery Mobile phone-nav positions are only available on phones,
+//   because those app-like menus do not look good on tablets and desktops
+//
+$jmwsIdMyGadget->phoneHeaderNavThisDevice  = FALSE;
+$jmwsIdMyGadget->phoneFooterNavThisDevice  = FALSE;
+if ( $jmwsIdMyGadget->isPhone() )
+{
+	if ( $this->countModules('phone-header-nav') )
+	{
+		$jmwsIdMyGadget->phoneHeaderNavThisDevice = TRUE;
+	}
+	if ( $this->countModules('phone-footer-nav') )
+	{
+		$jmwsIdMyGadget->phoneFooterNavThisDevice = TRUE;
+	}
+}
+//
 // Determine whether we want to include jQuery mobile:
 // o  If the device is a phone include it (we always use it on phones)
 // o  For tablets and desktops: based on hether we want at least one phone burger menu
@@ -217,8 +234,8 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 	$jqm_data_role_content = 'data-role="content"';
 	$jqm_data_role_footer = 'data-role="footer"';
 
-	if ( $this->countModules('phone-header-nav') ||
-	     $this->countModules('phone-footer-nav')   )
+	if ( $jmwsIdMyGadget->phoneHeaderNavThisDevice ||
+	     $jmwsIdMyGadget->phoneFooterNavThisDevice   )
 	{
 		$jqm_data_theme_template = $this->params->get('jqm_data_theme');
 		if ( $jqm_data_theme_template == 'none' )
@@ -275,10 +292,12 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 
 		<div id="all">
 			<div id="back">
-				<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
-					<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
-						<jdoc:include type="modules" name="phone-header-nav" style="none" />
-					</div>
+				<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?> <!-- CAN WE DELETE THIS?  FIX THE ISSUE FIRST AND TRY IT AND SEE LATER!!!!!!! -->
+					<?php if ( $jmwsIdMyGadget->phoneHeaderNavThisDevice ) : ?>
+						<div <?php echo $jqm_data_role_header . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
+							<jdoc:include type="modules" name="phone-header-nav" style="none" />
+						</div>
+					<?php endif; ?>
 				<?php endif; ?>
 				<header id="header">
 					<div class="logoheader">
@@ -390,6 +409,10 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				</div>
 			<?php endif; ?>
 
+			<p>$jmwsIdMyGadget->usingJQueryMobile: <?php echo $jmwsIdMyGadget->usingJQueryMobile ?></p>
+			<p>$jmwsIdMyGadget->phoneHeaderNavThisDevice: <?php echo $jmwsIdMyGadget->phoneHeaderNavThisDevice ?></p>
+			<p>$jmwsIdMyGadget->phoneFooterNavThisDevice: <?php echo $jmwsIdMyGadget->phoneFooterNavThisDevice ?></p>
+
 			<div id="footer-sub">
 				<?php
 					if ( $this->countModules('position-14') ||
@@ -401,10 +424,12 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 			</div> <!-- #footer-sub -->
 		</div> <!-- #footer-outer -->
 		<jdoc:include type="modules" name="debug" />
-		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?>
-			<div <?php echo $jqm_data_role_footer . ' ' . $jqm_data_theme_attribute ?> >
-				<jdoc:include type="modules" name="phone-footer-nav" />
-			</div>
+		<?php if ( $jmwsIdMyGadget->usingJQueryMobile ) : ?> <!-- CAN WE DELETE THIS?  FIX THE ISSUE FIRST AND TRY IT AND SEE LATER!!!!!!! -->
+			<?php if ( $jmwsIdMyGadget->phoneFooterNavThisDevice ) : ?>
+				<div <?php echo $jqm_data_role_footer . ' ' . $jqm_footer_attributes . ' ' . $jqm_data_theme_attribute ?> >
+					<jdoc:include type="modules" name="phone-footer-nav" />
+				</div>
+			<?php endif; ?>
 		<?php endif; ?>
 		<?php
 			// If the gadget-detector is not installed, generate an error message
