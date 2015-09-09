@@ -407,10 +407,6 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 				</div>
 			<?php endif; ?>
 
-			<p>$jmwsIdMyGadget->usingJQueryMobile: <?php echo $jmwsIdMyGadget->usingJQueryMobile ?></p>
-			<p>$jmwsIdMyGadget->phoneHeaderNavThisDevice: <?php echo $jmwsIdMyGadget->phoneHeaderNavThisDevice ?></p>
-			<p>$jmwsIdMyGadget->phoneFooterNavThisDevice: <?php echo $jmwsIdMyGadget->phoneFooterNavThisDevice ?></p>
-
 			<div id="footer-sub">
 				<?php
 					if ( $this->countModules('position-14') ||
