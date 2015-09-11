@@ -22,19 +22,29 @@ For best results, install the jmws_mod_menu_idMyGadget module.
 This is required for the hamburger (aka. "PhoneBurger") and phone header and footer menus to work. Your joomla site may even whitescreen if you try to create a Hamburger Menu and this module is not present.
 
 ## Status:
+The initial version of this template is complete, but thorough integration testing has been minimal, so there may be some rough edges.
+
 This project could serve as a good starting point for someone who wants to use Device Detection in the Beez3 template.
 
-Right now my work on this is pretty much on hold for now.
-I am focused on the jmws_protostar_tomh_idMyGadget template, and after that am planning to do similar work in WordPress and Drupal.
-There's no real reason for me to continue work on this, without a specific goal in mind and a compelling reason to prefer starting with Beez3 rather than jmws_protostar_tomh_idMyGadget .
+### Demo Article
+The [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget) article demonstrates how this template looks, but the configuration for it is unpolished and some fiddling with the configuration and a little CSS could go a long way in making it look much nicer.
 
-However, I'd certainly be happy to return to work on this, for a fee!  ;-)
+### Future Work
+The goal of this project is to integrate IdMYGadget with the Beez3 default Joomla template, and keep changes to a minimum.
+Right now that is complete, so additional work on this is on hold for now.
+
+I am currently using the [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget) template on my site [JooMooWebSites.Com](http://joomoowebsites.com/), and I am currently doing similar work in WordPress and Drupal.
+
+There's no real reason for me to continue work on this, without a specific goal in mind or some other compelling reason to start using this template, rather than [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget), which has a lot more options.
+
+### Self-Promotion Alert:
+I'd certainly be happy to do additional work on this, for a fee!  ;-)
 
 ## Installation:
 
 Installation of all jmws_* joomla extensions is the same.
-
 For details, see the following documents in the [Jmws Accoutrements Repo on github](https://github.com/tomwhartung/jmws_accoutrements/):
+
 * [Installing Jmws Joomla Extensions document](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/joomla/install.md)
 * [Jmws Github Strategy document](https://github.com/tomwhartung/jmws_accoutrements/blob/master/doc/devops/cms_github_strategy.md)
 
@@ -53,7 +63,7 @@ These tabs contain options allowing administrators to customize the appearance o
 
 ### Additional Admin Console Options
 The following article walks through the options in these new tabs:
-* (Beez3 IdMyGadget Demo)[http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget]
+* [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget)
 
 It contains screen shots of each tab and describes and demonstrates these options, and is an excellent supplement to the information in this README.md file.
 
