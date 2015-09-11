@@ -27,18 +27,20 @@ The initial version of this template is complete, but thorough integration testi
 This project could serve as a good starting point for someone who wants to use Device Detection in the Beez3 template.
 
 ### Demo Article
-The [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget) article demonstrates how this template looks, but the configuration for it is unpolished and some fiddling with the configuration and a little CSS could go a long way in making it look much nicer.
+The [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget) article gives an example of how this template looks.
+
+Note that the configuration for that demo is unpolished and some fiddling with the configuration and a little CSS could go a long way in making it look much nicer.
 
 ### Future Work
 The goal of this project is to integrate IdMYGadget with the Beez3 default Joomla template, and keep changes to a minimum.
-Right now that is complete, so additional work on this is on hold for now.
+Right now that goal is accomplished, so additional work on this is on hold for now.
 
-I am currently using the [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget) template on my site [JooMooWebSites.Com](http://joomoowebsites.com/), and I am currently doing similar work in WordPress and Drupal.
+I am currently using a similar template ([jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget)) on my site [JooMooWebSites.Com](http://joomoowebsites.com/), and have moved on to doing similar work in WordPress and Drupal.
 
-There's no real reason for me to continue work on this, without a specific goal in mind or some other compelling reason to start using this template, rather than [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget), which has a lot more options.
+Thus there is no real reason for me to continue work on this, without a new goal in mind, or some other compelling reason to start using this template rather than [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget), which has a lot more options.
 
-### Self-Promotion Alert:
-I'd certainly be happy to do additional work on this, for a fee!  ;-)
+#### Self-Promotion Alert:
+Of course, I'd certainly be happy to do additional work on this, for a fee!  ;-)
 
 ## Installation:
 
