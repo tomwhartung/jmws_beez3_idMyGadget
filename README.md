@@ -56,7 +56,7 @@ Integration of IdMyGadget with the template enables the addition of options to t
 ### Integration With IdMyGadget
 This template uses IdMyGadget to determine whether the user is accessing the site on a phone, tablet, or desktop, and changes the output accordingly.
 
-This template adds the following tabs to the joomla administration console for it:
+This template adds the following tabs to its configuration options in the joomla administration console:
 
 * IdMyGadget
 * Hamburger Nav
@@ -73,16 +73,40 @@ It contains screen shots of each tab and describes and demonstrates these option
 #### New tab: IdMyGadget
 Clicking on the IdMyGadget tab reveals the following options unique to this template:
 
-* New: Device Detector
+* Device Detector
   * Allows quickly switching between third-party device detectors
   * Note that each of these is **released under a different license** and has massively different capabilities, but that the IdMyGadget Adapter API makes them "look the same" to joomla
   * Note that only the Detect Mobile Browsers detector works "out of the box," and it does not detect tablets
   * Mobile Detect requires installation from github, for more information see the (IdMyGadget README.md for Mobile Detect)[http://github.com/tomwhartung/idMyGadget/blob/master/gadget_detectors/mobile_detect/README.md]
   * Tera Wurfl requires installation from source forge and is dependent on a database. For more information see the (IdMyGadget README.md for Tera Wurfl)[https://github.com/tomwhartung/idMyGadget/blob/master/gadget_detectors/tera_wurfl/README.md]
 
+##### Site header params - Phones
+
+* Logo (Phone) - Replaces Advanced -> Logo in Beez3 for phones
+* Site Title (Phone) - Replaces Advanced -> Site Title in Beez3 for phones
+* Tag Line (Phone) - Replaces Advanced -> Site Description in Beez3 for phones
+
+##### Site header params - Tablets
+
+* Logo (tablet) - Replaces Advanced -> Logo in Beez3 for tablets
+* Site Title (tablet) - Replaces Advanced -> Site Title in Beez3 for tablets
+* Tag Line (tablet) - Replaces Advanced -> Site Description in Beez3 for tablets
+
+##### Site header params - Desktop Browsers
+
+* Logo (Desktop) - Replaces Advanced -> Logo in Beez3 for desktop browsers
+* Site Title (Desktop) - Replaces Advanced -> Site Title in Beez3 for desktop browsers
+* Tag Line (Desktop) - Replaces Advanced -> Site Description in Beez3 for desktop browsers
 
 
 ## About IdMyGadget:
 
 For information about the IdMyGadget Device Detection Adapter API&copy;, see the [About-IdMyGadget.md file in this directory](https://github.com/tomwhartung/jmws_beez3_idMyGadget/blob/master/ABOUT-IdMyGadget.md).
+
+
+
+
+
+
+
 
