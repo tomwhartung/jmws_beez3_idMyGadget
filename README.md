@@ -125,7 +125,7 @@ To make this work, you need to define an appropriate joomla menu and assign it t
 
 This template uses the jQuery Mobile JavaScript Library to display a mobile-friendly pop-up menu.  This may not be the best look, feel, and behavior on desktop browsers!
 
-###### Demo Article Has Complete Setup Instructions
+##### Demo Article Has Complete Setup Instructions
 
 The [Hamburger Nav Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-modules/idmygadget-menus/hamburger-nav) article gives step-by-step instructions on how to set up these menus.
 
@@ -147,19 +147,32 @@ phoneBurgerMenuIconRightDesktop | Right | Desktop
 
 For up-to-date information about compatibility with respect to all of this functionality, see the latest articles on [joomoowebsites.com](http://joomoowebsites.com).
 
+#### New Tab: Phone Nav
 
+Clicking on the Phone Nav tab reveals the following options unique to this template:
 
+* Theme for Nav on Phones - value is passed to jQuery Mobile, which has customizable themes (but not many "out of the box")
 
+### Changes to Template Positions
 
+Positions were added, but none were harmed in the making of this template.
+
+#### New Positions
+
+The following positions appear in this template, but not in protostar:
+
+* phone-header-nav
+* phone-footer-nav
+* phone-burger-menu-left
+* phone-burger-menu-right
+
+## Requests for Enhancements
+
+I am open to doing additional work on this project.
+
+Note however that I have invested a considerable amount of my own time on this, and depending on the nature of your request(s), I may request some sort of compensation.
 
 ## About IdMyGadget:
 
 For information about the IdMyGadget Device Detection Adapter API&copy;, see the [About-IdMyGadget.md file in this directory](https://github.com/tomwhartung/jmws_beez3_idMyGadget/blob/master/ABOUT-IdMyGadget.md).
-
-
-
-
-
-
-
 
