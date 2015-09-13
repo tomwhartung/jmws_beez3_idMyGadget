@@ -98,6 +98,59 @@ Clicking on the IdMyGadget tab reveals the following options unique to this temp
 * Site Title (Desktop) - Replaces Advanced -> Site Title in Beez3 for desktop browsers
 * Tag Line (Desktop) - Replaces Advanced -> Site Description in Beez3 for desktop browsers
 
+#### New tab: Hamburger Nav
+
+This template supports the creation and placement of hamburger menus on one or both sides of the site header.
+
+Clicking on the Hamburger Nav tab reveals the following options unique to this template:
+
+##### Hamburger Menu Icon Params, Left Side
+* Show on tablets - menus placed in the **phone-burger-menu-left** position always appear on phones, pick yes to have this also display on tablets
+* Show on desktops - menus placed in the **phone-burger-menu-left** position always appear on phones, pick yes to have this also display on desktops
+* Left Hamburger Menu Size - choose one of the available values (in pixels)
+* Left Hamburger Menu Color - use the color picker or type in a hexadecimal RGB value
+* Left Hamburger Line Cap - select round, square, or butt
+* Left Hamburger Line Size - select normal, fat, or thin
+
+##### Hamburger Menu Icon Params, Right Side
+* Show on tablets - menus placed in the **phone-burger-menu-right** position always appear on phones, pick yes to have this also display on tablets
+* Show on desktops - menus placed in the **phone-burger-menu-right** position always appear on phones, pick yes to have this also display on desktops
+* Right Hamburger Menu Size - choose one of the available values (in pixels)
+* Right Hamburger Menu Color - use the color picker or type in a hexadecimal RGB value
+* Right Hamburger Line Cap - select round, square, or butt
+* Right Hamburger Line Size - select normal, fat, or thin
+
+##### Setup
+To make this work, you need to define an appropriate joomla menu and assign it to one of the new positions **phone-burger-menu-left** or **phone-burger-menu-right**.  Use the options on this tab if you define a menu and put it in one of these positions.
+
+This template uses the jQuery Mobile JavaScript Library to display a mobile-friendly pop-up menu.  This may not be the best look, feel, and behavior on desktop browsers!
+
+###### Demo Article Has Complete Setup Instructions
+
+The [Hamburger Nav Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-modules/idmygadget-menus/hamburger-nav) article gives step-by-step instructions on how to set up these menus.
+
+##### Known Issue and Work-around
+This template uses the HTML5 canvas element to draw the hamburger navigation icons.  Not all devices fully support using this functionality in this context.
+
+Placing one or more image files in the `templates/jmws_protostar_idmygadget/images/idMyGadget` directory causes this template to use the file instead of drawing the icons.  This can be a good workaround for devices that do not support the HTML5 canvas in this context.  These images must be named as the following table describes.
+
+File Name | Position | Device
+----------|----------|-------
+phoneBurgerMenuIconLeftPhone | Left | Phone
+phoneBurgerMenuIconRightPhone | Right | Phone
+phoneBurgerMenuIconLeftTablet | Left | Tablet
+phoneBurgerMenuIconRightTablet | Right | Tablet
+phoneBurgerMenuIconLeftDesktop | Left | Desktop
+phoneBurgerMenuIconRightDesktop | Right | Desktop
+
+**Note that this template scales the image to the size set in the options (Left Hamburger Menu Size or Right Hamburger Menu Size, as approprate).**
+
+For up-to-date information about compatibility with respect to all of this functionality, see the latest articles on [joomoowebsites.com](http://joomoowebsites.com).
+
+
+
+
+
 
 ## About IdMyGadget:
 
