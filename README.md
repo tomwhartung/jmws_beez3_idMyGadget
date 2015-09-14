@@ -1,5 +1,23 @@
 # jmws_beez3_idmygadget
-Integrates the default joomla Beez3 template with idMyGadget.
+This repo contains a Joomla! template that integrates the default Joomla! Beez3 template with IdMyGadget&copy; to, among other things, incorporate jQuery Mobile menus when content is served to Phones.
+
+## Goal
+The goal of this project is to simply integrate IdMyGadget with protostar, making minimal changes to the original template.
+The ultimate goal is to produce a template that uses device detection and can serve as a good starting point, rather than a finished template that looks good "straight out of the box."
+
+## Status:
+The initial version of this template is complete, but thorough integration testing has been minimal, so there may be some rough edges.
+
+This project could serve as a good starting point for someone who wants to use Device Detection in the Beez3 template, but it is not meant to be used "as is."
+
+Note that from the start this project was not meant to produce a template that looks good "straight out of the box."
+
+So there may be some rough edges, but we are done with this for now.
+
+#### Demo Article
+The [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget) article gives an example of how this template looks.
+
+Note that the configuration for that demo is unpolished and some fiddling with the configuration and a little CSS could go a long way in making it look much nicer.
 
 ## Dependencies
 To function properly, this code requires installation of code in other repos.
@@ -19,16 +37,6 @@ For information on how to install this required code, see the jmws_idMyGadget_fo
 For best results, install the jmws_mod_menu_idMyGadget module.
 
 This is required for the hamburger (aka. "PhoneBurger") and phone header and footer menus to work. Your joomla site may even whitescreen if you try to create a Hamburger Menu and this module is not present.
-
-## Status:
-The initial version of this template is complete, but thorough integration testing has been minimal, so there may be some rough edges.
-
-This project could serve as a good starting point for someone who wants to use Device Detection in the Beez3 template.
-
-#### Demo Article
-The [Beez3 IdMyGadget Demo](http://joomoowebsites.com/index.php/demos/demos-joomla/joomla-templates/demo-beez3-idmygadget) article gives an example of how this template looks.
-
-Note that the configuration for that demo is unpolished and some fiddling with the configuration and a little CSS could go a long way in making it look much nicer.
 
 #### Future Work
 The goal of this project is to integrate IdMYGadget with the Beez3 default Joomla template, and keep changes to a minimum.
