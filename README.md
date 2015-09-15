@@ -11,7 +11,6 @@ The initial version of this template is complete, but thorough integration testi
 This project could serve as a good starting point for someone who wants to use Device Detection in the Beez3 template, but it is not meant to be used "as is."
 
 Note that from the start this project was not meant to produce a template that looks good "straight out of the box."
-
 So there may be some rough edges, but we are done with this for now.
 
 #### Demo Article
@@ -37,18 +36,6 @@ For information on how to install this required code, see the jmws_idMyGadget_fo
 For best results, install the jmws_mod_menu_idMyGadget module.
 
 This is required for the hamburger (aka. "PhoneBurger") and phone header and footer menus to work. Your joomla site may even whitescreen if you try to create a Hamburger Menu and this module is not present.
-
-#### Future Work
-The goal of this project is to integrate IdMYGadget with the Beez3 default Joomla template, and keep changes to a minimum.
-
-Right now that goal is accomplished, so additional work on this is on hold for now.
-
-I am currently using a similar template ([jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget)) on my site [JooMooWebSites.Com](http://joomoowebsites.com/), and have moved on to doing similar work in WordPress and Drupal.
-
-Thus there is no real reason for me to continue work on this, without a new goal in mind, or some other compelling reason to start using this template rather than [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget), which has a lot more options.
-
-#### Self-Promotion Alert!
-Of course, I'd certainly be happy to do additional work on this, for a fee!  ;-)
 
 ## Installation:
 
@@ -175,10 +162,21 @@ The following positions appear in this template, but not in protostar:
 * phone-burger-menu-right
 
 ## Requests for Enhancements
-
 I am open to doing additional work on this project.
 
 Note however that I have invested a considerable amount of my own time on this, and depending on the nature of your request(s), I may request some sort of compensation.
+
+#### Future Work on This Project
+The goal of this project is to integrate IdMYGadget with the Beez3 default Joomla template, and keep changes to a minimum.
+
+Right now that goal is accomplished, so additional work on this is on hold for now.
+
+I am currently using a similar template ([jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget)) on my site [JooMooWebSites.Com](http://joomoowebsites.com/), and have moved on to doing similar work in WordPress and Drupal.
+
+Thus there is no real reason for me to continue work on this, without a new goal in mind, or some other compelling reason to start using this template rather than [jmws_protostar_tomh_idMyGadget](https://github.com/tomwhartung/jmws_protostar_tomh_idMyGadget), which has a lot more options.
+
+#### Self-Promotion Alert!
+Of course, I'd certainly be happy to do additional work on this, for a fee!  ;-)
 
 ## About IdMyGadget:
 
