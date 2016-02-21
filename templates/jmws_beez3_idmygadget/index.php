@@ -262,6 +262,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 		<?php require __DIR__ . '/jsstrings.php';?>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes"/>
+		<link rel="alternate" href="<?php echo JURI::base(); ?>" hreflang="en-us" />
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="apple-mobile-web-app-capable" content="YES" />
 
