@@ -5,6 +5,20 @@
  * 
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *
+ * @copyright Copyright © 2015-2016 Tom W Hartung.  All rights reserved.
+ * @license   GNU General Public License version 3; see COPYING.txt
+ *
+ * This file is part of jmws_beez3_idmygadget.
+ * jmws_beez3_idmygadget is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ * jmws_beez3_idmygadget is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
  */
 
 // No direct access.
@@ -262,7 +276,6 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 		<?php require __DIR__ . '/jsstrings.php';?>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes"/>
-		<link rel="alternate" href="<?php echo JURI::base(); ?>" hreflang="en-us" />
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="apple-mobile-web-app-capable" content="YES" />
 
