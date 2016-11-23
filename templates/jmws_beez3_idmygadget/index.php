@@ -274,6 +274,7 @@ if ( $jmwsIdMyGadget->usingJQueryMobile )
 		<?php echo $phoneBurgerIconLeft->js . $phoneBurgerIconRight->js ?>
 	</head>
 	<body id="shadow">
+		<?php include_once("google_analytics.php") ?>
 		<?php
 			if ( $jmwsIdMyGadget->usingJQueryMobile )
 			{
